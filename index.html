@@ -11,7 +11,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
+      background-color: #000000;
       color: #fff;
       font-family: sans-serif;
       overflow-x: hidden;
@@ -38,28 +38,34 @@
       width: 1px;
       height: 1px;
       background: transparent;
+      z-index: 0;
+      animation: animStar 180s linear infinite;
       box-shadow: 
-        768px 1070px #fff, 468px 194px #fff, 320px 1867px #fff, 1850px 185px #fff,
-        380px 1616px #fff, 468px 1294px #fff, 1122px 1743px #fff, 884px 299px #fff,
-        1300px 1917px #fff, 1860px 396px #fff, 1270px 990px #fff, 529px 733px #fff,
-        1975px 1347px #fff, 1885px 685px #fff, 226px 506px #fff, 651px 878px #fff,
-        1323px 680px #fff, 1284px 680px #fff, 238px 1967px #fff, 911px 174px #fff;
+        779px 1331px #fff, 324px 42px #fff, 303px 586px #fff, 1312px 276px #fff,
+        451px 625px #fff, 521px 1931px #fff, 1087px 1871px #fff, 36px 1546px #fff,
+        132px 934px #fff, 1698px 901px #fff, 1418px 664px #fff, 1448px 1157px #fff,
+        1084px 232px #fff, 347px 1776px #fff, 1722px 243px #fff, 1629px 835px #fff,
+        479px 969px #fff, 1231px 960px #fff, 586px 384px #fff;
+    }
+
+    @keyframes animStar {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-2000px); }
     }
 
     /* ==========================================
-       透明ボックス スタイル
+       端から端まで広がる透明ボックス＆更新履歴
        ========================================== */
     .box {
+      width: 100%; /* 横幅を端から端までに設定 */
+      background: linear-gradient(to right, #010633, #000000);
       background-color: rgba(0, 0, 0, 0.5);
       color: #fff;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 600px;
-      background: linear-gradient(to right, #010633, #000000);
+      margin: 20px 0;
       text-align: center;
-      padding: 15px 20px;
+      padding: 15px 0;
       box-sizing: border-box;
-      border-radius: 8px;
+      min-height: 60px;
     }
 
     .sub-text-1 {
@@ -75,18 +81,16 @@
       display: block;
     }
 
-    /* 更新履歴ボックス */
+    /* 更新履歴ボックス（横幅100%） */
     .box2 {
+      width: 100%; /* 横幅を端から端までに設定 */
+      background: linear-gradient(to right, #010633, #000000);
       background-color: rgba(2, 8, 60, 0.5);
       color: #fff;
-      margin: 40px auto;
-      width: 90%;
-      max-width: 650px;
-      background: linear-gradient(to right, #010633, #000000);
+      margin: 40px 0;
       text-align: center;
-      padding: 20px;
+      padding: 20px 0;
       box-sizing: border-box;
-      border-radius: 8px;
       line-height: 1.8;
     }
 
@@ -106,20 +110,20 @@
     }
 
     /* ==========================================
-       レイアウト用グリッド（2列並びを崩さない）
+       レイアウト用グリッド（左右中央寄せ）
        ========================================== */
     .grid-2col {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      margin-bottom: 50px;
+      gap: 50px;
+      margin-bottom: 40px;
     }
 
     .grid-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 180px;
+      min-width: 200px;
     }
 
     .btn-desc {
@@ -129,7 +133,7 @@
     }
 
     .section-margin {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     /* アイコン画像グループ */
@@ -153,14 +157,15 @@
     .header-banner {
       max-width: 100%;
       height: auto;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     /* ==========================================
-       ボタン演出
+       光るボタン演出 (btn-glow / btn-glow2)
        ========================================== */
     .btn-glow2 {
       display: inline-block;
+      position: relative;
     }
 
     .btn-glow {
@@ -169,8 +174,8 @@
       background: linear-gradient(to right, rgba(138, 97, 248, 1) 0%, rgba(236, 159, 231, 1) 100%);
       border: none;
       text-align: center;
-      font-size: 20px;
-      line-height: 50px;
+      font-size: 22px;
+      line-height: 53px;
       letter-spacing: 0.07em;
       text-decoration: none !important;
       text-transform: uppercase;
@@ -178,18 +183,13 @@
       transition: 0.3s;
       animation: glow 3s infinite ease-out;
       border-radius: 50px;
-      min-width: 120px;
-      box-sizing: border-box;
-    }
-
-    .btn-glow:hover {
-      background: linear-gradient(to right, rgba(203, 139, 232, 1) 0%, rgba(117, 68, 246, 1) 100%);
+      box-shadow: 0 0 20px rgba(139, 97, 248, 0.5);
     }
 
     @keyframes glow {
-      0% { box-shadow: 0 0 20px rgba(139, 97, 248, 0.27); }
-      50% { box-shadow: 0 0 100px rgba(139, 97, 248, 0.93); }
-      100% { box-shadow: 0 0 20px rgba(139, 97, 248, 0.27); }
+      0% { box-shadow: 0 0 20px rgba(139, 97, 248, 0.4); }
+      50% { box-shadow: 0 0 50px rgba(236, 159, 231, 0.9); }
+      100% { box-shadow: 0 0 20px rgba(139, 97, 248, 0.4); }
     }
 
     .btn-hover-shine {
@@ -219,39 +219,39 @@
     .copyright {
       color: #9966ff;
       font-size: 16px;
-      margin-top: 40px;
+      margin-top: 30px;
     }
   </style>
 </head>
 
 <body>
-  <div class="wrapper">
-    <!-- 星空背景 -->
-    <div id="stars"></div>
+  <!-- 星空背景 -->
+  <div id="stars"></div>
 
+  <div class="wrapper">
     <!-- メインヘッダー画像 -->
     <img src="/image/chabiland20251121_2.png" alt="chabi land" class="header-banner" width="594" height="154">
 
-    <!-- 透明ボックス1 -->
+    <!-- 端から端までの透明ボックス -->
     <div class="box">
       <span class="sub-text-1">ADV・ノベルゲーム制作&ensp;チャビノスケのWebサイト</span>
       <span class="sub-text-2">ゲーム 他 色々まとめです</span>
     </div>
 
-    <div style="height: 40px;"></div>
+    <div style="height: 30px;"></div>
 
     <!-- ボタンエリア 1 (Read me / Game) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="readme.html" target="_blank" class="btn-glow btn-hover-shine">Read me</a>
+          <a href="readme.html" target="_blank" class="btn-glow btn-hover-shine">&ensp;Read me&ensp;</a>
         </div>
         <div class="btn-desc">規約など</div>
       </div>
 
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://chabinosukede.gozaru.jp/game.html" target="_blank" class="btn-glow btn-hover-shine">Game</a>
+          <a href="https://chabinosukede.gozaru.jp/game.html" target="_blank" class="btn-glow btn-hover-shine">&emsp;&ensp;Game&ensp;&emsp;</a>
         </div>
         <div class="btn-desc">制作したゲーム</div>
       </div>
@@ -261,14 +261,14 @@
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://ci-en.net/creator/27222" target="_blank" class="btn-glow btn-hover-shine">Ci-en</a>
+          <a href="https://ci-en.net/creator/27222" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Ci-en&emsp;&nbsp;</a>
         </div>
         <div class="btn-desc">最新の進捗</div>
       </div>
 
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://chabinosukede.gozaru.jp/event.html" target="_blank" class="btn-glow btn-hover-shine">Event</a>
+          <a href="https://chabinosukede.gozaru.jp/event.html" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Event&emsp;&nbsp;</a>
         </div>
         <div class="btn-desc">参加イベント</div>
       </div>
@@ -277,13 +277,13 @@
     <!-- アイコン画像 1 -->
     <div class="icon-group">
       <a href="https://novelgame.jp/users/profile/15990" target="_blank">
-        <img src="image/nvc_new1.png" onmouseover="this.src='image/nvc_new2.png'" onmouseout="this.src='image/nvc_new1.png'" width="130" height="130" alt="ノベルゲームコレクション">
+        <img src="image/nvc_new1.png" onmouseover="this.src='image/nvc_new2.png'" onmouseout="this.src='image/nvc_new1.png'" hspace="8" width="130" height="130" alt="ノベルゲームコレクション">
       </a>
       <a href="https://chabinosuke.booth.pm/" target="_blank">
-        <img src="image/new_booth1.png" onmouseover="this.src='image/new_booth02.png'" onmouseout="this.src='image/new_booth1.png'" width="130" height="130" alt="BOOTH">
+        <img src="image/new_booth1.png" onmouseover="this.src='image/new_booth02.png'" onmouseout="this.src='image/new_booth1.png'" hspace="8" width="130" height="130" alt="BOOTH">
       </a>
       <a href="https://marshmallow-qa.com/qccg6c00ohf19y7" target="_blank">
-        <img src="image/message01_3.png" onmouseover="this.src='image/message02_3.png'" onmouseout="this.src='image/message01_3.png'" width="130" height="130" alt="マシュマロ">
+        <img src="image/message01_3.png" onmouseover="this.src='image/message02_3.png'" onmouseout="this.src='image/message01_3.png'" hspace="8" width="130" height="130" alt="マシュマロ">
       </a>
     </div>
 
@@ -295,30 +295,30 @@
     <!-- SNSアイコン画像 -->
     <div class="icon-group">
       <a href="https://x.com/chabinosuke_" target="_blank">
-        <img src="image/x_new001.png" onmouseover="this.src='image/x_new002.png'" onmouseout="this.src='image/x_new001.png'" width="130" height="130" alt="X">
+        <img src="image/x_new001.png" onmouseover="this.src='image/x_new002.png'" onmouseout="this.src='image/x_new001.png'" hspace="8" width="130" height="130" alt="X">
       </a>
       <a href="https://bsky.app/profile/chabinosuke.bsky.social" target="_blank">
-        <img src="image/bs000001.png" onmouseover="this.src='image/bs000002.png'" onmouseout="this.src='image/bs000001.png'" width="130" height="130" alt="Bluesky">
+        <img src="image/bs000001.png" onmouseover="this.src='image/bs000002.png'" onmouseout="this.src='image/bs000001.png'" hspace="8" width="130" height="130" alt="Bluesky">
       </a>
       <a href="https://note.com/chabinosuke___13" target="_blank">
-        <img src="image/note01_4.png" onmouseover="this.src='image/note02_2.png'" onmouseout="this.src='image/note01_4.png'" width="130" height="130" alt="note">
+        <img src="image/note01_4.png" onmouseover="this.src='image/note02_2.png'" onmouseout="this.src='image/note01_4.png'" hspace="8" width="130" height="130" alt="note">
       </a>
     </div>
 
-    <div style="height: 30px;"></div>
+    <div style="height: 20px;"></div>
 
     <!-- ボタンエリア 3 (next list / YouTube) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://note.com/" target="_blank" class="btn-glow btn-hover-shine">next list</a>
+          <a href="https://note.com/" target="_blank" class="btn-glow btn-hover-shine">&emsp;next&nbsp;list&emsp;</a>
         </div>
         <div class="btn-desc">調整中&#x203B;制作したいもの</div>
       </div>
 
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://www.youtube.com/@chabinosuke" target="_blank" class="btn-glow btn-hover-shine">YouTube</a>
+          <a href="https://www.youtube.com/@chabinosuke" target="_blank" class="btn-glow btn-hover-shine">&emsp;YouTube&emsp;</a>
         </div>
         <div class="btn-desc">制作した動画</div>
       </div>
@@ -335,7 +335,7 @@
 
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://note.com/chabinosuke___13/m/m2fb83ca42a49" target="_blank" class="btn-glow btn-hover-shine">Manga</a>
+          <a href="https://note.com/chabinosuke___13/m/m2fb83ca42a49" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Manga&nbsp;&emsp;&nbsp;</a>
         </div>
         <div class="btn-desc">極短マンガ</div>
       </div>
@@ -344,19 +344,19 @@
     <!-- メール / 問い合わせ -->
     <div class="section-margin">
       <a href="https://chabinosukede.gozaru.jp/info.html" target="_blank">
-        <img src="image/mail_new1.png" onmouseover="this.src='image/mail_new2.png'" onmouseout="this.src='image/mail_new1.png'" width="130" height="130" alt="Mail">
+        <img src="image/mail_new1.png" onmouseover="this.src='image/mail_new2.png'" onmouseout="this.src='image/mail_new1.png'" hspace="8" width="130" height="130" alt="Mail">
       </a>
     </div>
 
     <!-- リンクボタン -->
     <div class="section-margin">
       <div class="btn-glow2">
-        <a href="https://chabinosukede.gozaru.jp/link.html" target="_blank" class="btn-glow btn-hover-shine">Link</a>
+        <a href="https://chabinosukede.gozaru.jp/link.html" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Link&nbsp;&emsp;&nbsp;</a>
       </div>
       <div class="btn-desc">リンクまとめ</div>
     </div>
 
-    <!-- 更新履歴ボックス -->
+    <!-- 端から端までの更新履歴ボックス -->
     <div class="box2">
       <div class="history-title">更新履歴</div>
       <div>
