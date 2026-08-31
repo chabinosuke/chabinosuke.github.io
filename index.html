@@ -6,12 +6,18 @@
   <title>チャビノスケのWebサイト</title>
   <style>
     /* ==========================================
-       全体基本設定
+       全体基本設定 & 下からのピンク紫炎グラデーション
        ========================================== */
+    html {
+      min-height: 100%;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #000000;
+      /* 下からピンク紫の炎のような光が立ち上る背景グラデーション */
+      background: radial-gradient(ellipse at bottom, rgba(120, 30, 160, 0.55) 0%, rgba(20, 5, 35, 0.85) 60%, #000000 100%), #000000;
+      background-attachment: fixed;
       color: #fff;
       font-family: sans-serif;
       overflow-x: hidden;
@@ -19,7 +25,7 @@
 
     .wrapper {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       padding: 20px 0 60px 0;
       text-align: center;
     }
@@ -35,17 +41,19 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 1px;
-      height: 1px;
+      width: 2px;
+      height: 2px;
       background: transparent;
-      z-index: 0;
+      z-index: 1; /* 背景の上に表示 */
+      pointer-events: none;
       animation: animStar 180s linear infinite;
       box-shadow: 
         779px 1331px #fff, 324px 42px #fff, 303px 586px #fff, 1312px 276px #fff,
         451px 625px #fff, 521px 1931px #fff, 1087px 1871px #fff, 36px 1546px #fff,
         132px 934px #fff, 1698px 901px #fff, 1418px 664px #fff, 1448px 1157px #fff,
         1084px 232px #fff, 347px 1776px #fff, 1722px 243px #fff, 1629px 835px #fff,
-        479px 969px #fff, 1231px 960px #fff, 586px 384px #fff;
+        479px 969px #fff, 1231px 960px #fff, 586px 384px #fff, 850px 700px #fff,
+        1100px 300px #fff, 200px 1400px #fff, 1500px 1600px #fff, 950px 1200px #fff;
     }
 
     @keyframes animStar {
@@ -57,9 +65,8 @@
        端から端まで広がる透明ボックス＆更新履歴
        ========================================== */
     .box {
-      width: 100%; /* 横幅を端から端までに設定 */
-      background: linear-gradient(to right, #010633, #000000);
-      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      background: linear-gradient(to right, rgba(1, 6, 51, 0.7), rgba(0, 0, 0, 0.7));
       color: #fff;
       margin: 20px 0;
       text-align: center;
@@ -83,9 +90,8 @@
 
     /* 更新履歴ボックス（横幅100%） */
     .box2 {
-      width: 100%; /* 横幅を端から端までに設定 */
-      background: linear-gradient(to right, #010633, #000000);
-      background-color: rgba(2, 8, 60, 0.5);
+      width: 100%;
+      background: linear-gradient(to right, rgba(1, 6, 51, 0.8), rgba(0, 0, 0, 0.8));
       color: #fff;
       margin: 40px 0;
       text-align: center;
@@ -161,14 +167,40 @@
     }
 
     /* ==========================================
-       光るボタン演出 (btn-glow / btn-glow2)
+       二重構造で光るボタン演出 (btn-glow2 ＋ btn-glow)
        ========================================== */
+    /* 外側のオーラ（二重ボタンの背面効果） */
     .btn-glow2 {
       display: inline-block;
       position: relative;
+      border-radius: 50px;
     }
 
+    .btn-glow2::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(to right, rgba(138, 97, 248, 0.8), rgba(236, 159, 231, 0.8));
+      border-radius: 50px;
+      filter: blur(10px);
+      opacity: 0.8;
+      z-index: 0;
+      animation: glowOuter 3s infinite ease-out;
+    }
+
+    @keyframes glowOuter {
+      0% { opacity: 0.5; filter: blur(8px); }
+      50% { opacity: 1; filter: blur(15px); }
+      100% { opacity: 0.5; filter: blur(8px); }
+    }
+
+    /* 内側のメインボタン */
     .btn-glow {
+      position: relative;
+      z-index: 1;
       color: #fff !important;
       display: inline-block;
       background: linear-gradient(to right, rgba(138, 97, 248, 1) 0%, rgba(236, 159, 231, 1) 100%);
@@ -181,15 +213,7 @@
       text-transform: uppercase;
       padding: 0 30px;
       transition: 0.3s;
-      animation: glow 3s infinite ease-out;
       border-radius: 50px;
-      box-shadow: 0 0 20px rgba(139, 97, 248, 0.5);
-    }
-
-    @keyframes glow {
-      0% { box-shadow: 0 0 20px rgba(139, 97, 248, 0.4); }
-      50% { box-shadow: 0 0 50px rgba(236, 159, 231, 0.9); }
-      100% { box-shadow: 0 0 20px rgba(139, 97, 248, 0.4); }
     }
 
     .btn-hover-shine {
@@ -225,7 +249,7 @@
 </head>
 
 <body>
-  <!-- 星空背景 -->
+  <!-- 動く星空背景 -->
   <div id="stars"></div>
 
   <div class="wrapper">
@@ -280,10 +304,10 @@
         <img src="image/nvc_new1.png" onmouseover="this.src='image/nvc_new2.png'" onmouseout="this.src='image/nvc_new1.png'" hspace="8" width="130" height="130" alt="ノベルゲームコレクション">
       </a>
       <a href="https://chabinosuke.booth.pm/" target="_blank">
-        <img src="image/new_booth1.png" onmouseover="this.src='image/new_booth02.png'" onmouseout="this.src='image/new_booth1.png'" hspace="8" width="130" height="130" alt="BOOTH">
+        <img src="image/new_booth1.png" onmouseover="this.src='image/new_booth02.png'" onmouseout="this.src='image/new_booth1.png'" width="130" height="130" alt="BOOTH">
       </a>
       <a href="https://marshmallow-qa.com/qccg6c00ohf19y7" target="_blank">
-        <img src="image/message01_3.png" onmouseover="this.src='image/message02_3.png'" onmouseout="this.src='image/message01_3.png'" hspace="8" width="130" height="130" alt="マシュマロ">
+        <img src="image/message01_3.png" onmouseover="this.src='image/message02_3.png'" onmouseout="this.src='image/message01_3.png'" width="130" height="130" alt="マシュマロ">
       </a>
     </div>
 
@@ -298,10 +322,10 @@
         <img src="image/x_new001.png" onmouseover="this.src='image/x_new002.png'" onmouseout="this.src='image/x_new001.png'" hspace="8" width="130" height="130" alt="X">
       </a>
       <a href="https://bsky.app/profile/chabinosuke.bsky.social" target="_blank">
-        <img src="image/bs000001.png" onmouseover="this.src='image/bs000002.png'" onmouseout="this.src='image/bs000001.png'" hspace="8" width="130" height="130" alt="Bluesky">
+        <img src="image/bs000001.png" onmouseover="this.src='image/bs000002.png'" onmouseout="this.src='image/bs000001.png'" width="130" height="130" alt="Bluesky">
       </a>
       <a href="https://note.com/chabinosuke___13" target="_blank">
-        <img src="image/note01_4.png" onmouseover="this.src='image/note02_2.png'" onmouseout="this.src='image/note01_4.png'" hspace="8" width="130" height="130" alt="note">
+        <img src="image/note01_4.png" onmouseover="this.src='image/note02_2.png'" onmouseout="this.src='image/note01_4.png'" width="130" height="130" alt="note">
       </a>
     </div>
 
