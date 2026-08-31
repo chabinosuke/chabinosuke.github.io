@@ -6,21 +6,36 @@
   <title>チャビノスケのWebサイト</title>
   <style>
     /* ==========================================
-       全体基本設定 & 下からのピンク紫炎グラデーション
+       全体基本設定 & オリジナル背景グラデーション
        ========================================== */
     html {
-      min-height: 100%;
+      height: 100%;
     }
 
     body {
       margin: 0;
       padding: 0;
-      /* 下からピンク紫の炎のような光が立ち上る背景グラデーション */
-      background: radial-gradient(ellipse at bottom, rgba(120, 30, 160, 0.55) 0%, rgba(20, 5, 35, 0.85) 60%, #000000 100%), #000000;
+      min-height: 100vh;
+      /* ご提示いただいた背景カラー */
+      background: radial-gradient(ellipse at bottom, #071246 45%, #090a0f 70%);
       background-attachment: fixed;
       color: #fff;
       font-family: sans-serif;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 下部から立ち上るピンク紫のぼかし光線 */
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60vh;
+      background: radial-gradient(ellipse at bottom, rgba(236, 159, 231, 0.35) 0%, rgba(138, 97, 248, 0.2) 40%, transparent 80%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .wrapper {
@@ -35,25 +50,58 @@
     }
 
     /* ==========================================
-       星空背景アニメーション (#stars)
+       4層構造の動く星空アニメーション
        ========================================== */
-    #stars {
+    #stars, #stars2, #stars3, #stars4 {
       position: fixed;
       top: 0;
       left: 0;
-      width: 2px;
-      height: 2px;
       background: transparent;
-      z-index: 1; /* 背景の上に表示 */
+      z-index: 1;
       pointer-events: none;
-      animation: animStar 180s linear infinite;
+    }
+
+    /* 星1: 小さく速い星 */
+    #stars {
+      width: 1px;
+      height: 1px;
+      animation: animStar 50s linear infinite;
       box-shadow: 
         779px 1331px #fff, 324px 42px #fff, 303px 586px #fff, 1312px 276px #fff,
         451px 625px #fff, 521px 1931px #fff, 1087px 1871px #fff, 36px 1546px #fff,
         132px 934px #fff, 1698px 901px #fff, 1418px 664px #fff, 1448px 1157px #fff,
-        1084px 232px #fff, 347px 1776px #fff, 1722px 243px #fff, 1629px 835px #fff,
-        479px 969px #fff, 1231px 960px #fff, 586px 384px #fff, 850px 700px #fff,
-        1100px 300px #fff, 200px 1400px #fff, 1500px 1600px #fff, 950px 1200px #fff;
+        1084px 232px #fff, 347px 1776px #fff, 1722px 243px #fff, 1629px 835px #fff;
+    }
+
+    /* 星2: 中くらいの大きさの星 */
+    #stars2 {
+      width: 2px;
+      height: 2px;
+      animation: animStar 100s linear infinite;
+      box-shadow: 
+        379px 831px #fff, 124px 842px #fff, 803px 286px #fff, 512px 1276px #fff,
+        1451px 125px #fff, 1521px 931px #fff, 87px 871px #fff, 636px 546px #fff,
+        1132px 134px #fff, 698px 1901px #fff, 418px 1664px #fff;
+    }
+
+    /* 星3: 少し大きくてゆっくり動く星 */
+    #stars3 {
+      width: 3px;
+      height: 3px;
+      animation: animStar 150s linear infinite;
+      box-shadow: 
+        179px 331px #fff, 924px 1242px #fff, 503px 1586px #fff, 112px 76px #fff,
+        851px 1625px #fff, 221px 931px #fff, 1587px 271px #fff, 1236px 946px #fff;
+    }
+
+    /* 星4: 大粒で一番ゆっくり動く星 */
+    #stars4 {
+      width: 4px;
+      height: 4px;
+      animation: animStar 200s linear infinite;
+      box-shadow: 
+        479px 1100px #ffc1ff, 1224px 400px #fff, 803px 1700px #c1c1ff, 212px 600px #fff,
+        1551px 1300px #fff, 921px 100px #ffc1ff;
     }
 
     @keyframes animStar {
@@ -121,7 +169,7 @@
     .grid-2col {
       display: flex;
       justify-content: center;
-      gap: 50px;
+      gap: 60px;
       margin-bottom: 40px;
     }
 
@@ -129,13 +177,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 200px;
+      min-width: 220px;
     }
 
     .btn-desc {
       font-size: 14px;
       color: #bf92fc;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .section-margin {
@@ -167,37 +215,45 @@
     }
 
     /* ==========================================
-       二重構造で光るボタン演出 (btn-glow2 ＋ btn-glow)
+       二重構造で光るボタン演出 (横にはみ出る背景ボタン + 強い発光)
        ========================================== */
-    /* 外側のオーラ（二重ボタンの背面効果） */
+    /* 下側に重なる背景ボタン（横に少しはみ出る） */
     .btn-glow2 {
       display: inline-block;
       position: relative;
       border-radius: 50px;
+      padding: 0 12px; /* 左右に少しはみ出る幅を作る */
     }
 
     .btn-glow2::before {
       content: '';
       position: absolute;
-      top: -3px;
-      left: -3px;
-      right: -3px;
-      bottom: -3px;
-      background: linear-gradient(to right, rgba(138, 97, 248, 0.8), rgba(236, 159, 231, 0.8));
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to right, rgba(138, 97, 248, 0.9), rgba(236, 159, 231, 0.9));
       border-radius: 50px;
-      filter: blur(10px);
-      opacity: 0.8;
+      filter: blur(16px); /* しっかりぼかす強い光 */
+      opacity: 0.95;
       z-index: 0;
-      animation: glowOuter 3s infinite ease-out;
+      animation: glowOuter 2.5s infinite alternate ease-in-out;
     }
 
     @keyframes glowOuter {
-      0% { opacity: 0.5; filter: blur(8px); }
-      50% { opacity: 1; filter: blur(15px); }
-      100% { opacity: 0.5; filter: blur(8px); }
+      0% {
+        opacity: 0.6;
+        filter: blur(10px);
+        box-shadow: 0 0 15px rgba(138, 97, 248, 0.6);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(20px);
+        box-shadow: 0 0 35px rgba(236, 159, 231, 1);
+      }
     }
 
-    /* 内側のメインボタン */
+    /* 上側に重なるメインボタン */
     .btn-glow {
       position: relative;
       z-index: 1;
@@ -214,6 +270,7 @@
       padding: 0 30px;
       transition: 0.3s;
       border-radius: 50px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
     .btn-hover-shine {
@@ -249,8 +306,11 @@
 </head>
 
 <body>
-  <!-- 動く星空背景 -->
+  <!-- 4層の動く星空背景 -->
   <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+  <div id="stars4"></div>
 
   <div class="wrapper">
     <!-- メインヘッダー画像 -->
@@ -319,7 +379,7 @@
     <!-- SNSアイコン画像 -->
     <div class="icon-group">
       <a href="https://x.com/chabinosuke_" target="_blank">
-        <img src="image/x_new001.png" onmouseover="this.src='image/x_new002.png'" onmouseout="this.src='image/x_new001.png'" hspace="8" width="130" height="130" alt="X">
+        <img src="image/x_new001.png" onmouseover="this.src='image/x_new002.png'" onmouseout="this.src='image/x_new001.png'" width="130" height="130" alt="X">
       </a>
       <a href="https://bsky.app/profile/chabinosuke.bsky.social" target="_blank">
         <img src="image/bs000001.png" onmouseover="this.src='image/bs000002.png'" onmouseout="this.src='image/bs000001.png'" width="130" height="130" alt="Bluesky">
