@@ -1,70 +1,379 @@
-1882px 1831px #fff;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>チャビノスケのWebサイト</title>
+  <style>
+    /* ==========================================
+       全体基本設定
+       ========================================== */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
 
-#stars2:after {
-    content: '';
-    position: absolute;
-    top: 1780px;
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    box-shadow: 1448px 320px #fff, 1775px 1663px #fff, 332px 1364px #fff,
-    878px 340px #FEF4F8, 569px 1832px #FEF4F8, 1422px 1684px #FEF4F8, 1946px 1907px #fff,
-    121px 979px #fff, 1044px 1069px #fff, 463px 381px #fff, 423px 112px #E5EDFF,
-    523px 1179px #fff, 779px 654px #E5EDFF, 1398px 694px #fff, 1085px 1464px #fff,
-    1599px 1869px #fff, 801px 1882px #fff, 779px 1231px #fff, 552px 932px #fff,
-    1057px 1196px #fff, 282px 1280px #fff, 496px 1986px #fff, 1833px 1120px #fff,
-    1802px 1293px #fff, 6px 1696px #fff, 412px 1902px #fff, 605px 438px #fff,
-    24px 1212px #FEFEEC, 234px 1320px #fff, 544px 344px #fff, 1107px 170px #fff,
-    1603px 196px #fff, 905px 648px #E5EDFF, 68px 1458px #fff, 649px 1969px #fff,
-    744px 675px #fff, 1127px 478px #FEFEEC, 714px 1814px #fff, 1486px 526px #fff,
-    270px 1636px #fff, 1931px 149px #fff, 1807px 378px #FEFEEC, 8px 390px #fff,
-    1415px 699px #fff, 1473px 1211px #fff, 1590px 141px #fff, 270px 1705px #fff,
-    69px 1423px #fff, 1108px 1053px #fff, 1946px 128px #fff, 371px 371px #fff,
-    1490px 220px #fff, 357px 1885px #fff, 363px 363px #fff, 1896px 1256px #fff,
-    1979px 1050px #fff, 947px 1342px #fff, 1754px 242px #fff, 514px 974px #fff,
-    65px 1477px #fff, 1840px 547px #fff, 950px 695px #fff, 459px 1150px #fff,
-    1124px 1502px #fff, 481px 940px #fff, 680px 839px #fff, 797px 1169px #fff,
-    1977px 1491px #fff, 734px 1724px #fff, 210px 298px #fff, 816px 628px #fff,
-    686px 770px #fff, 1721px 267px #fff, 1663px 511px #fff, 1481px 1141px #fff,
-    582px 248px #FFFFE5, 1308px 953px #fff, 628px 657px #fff, 897px 1535px #fff,
-    270px 931px #fff, 791px 467px #E5EDFF, 1336px 1732px #fff, 1013px 1653px #fff,
-    1911px 956px #fff, 587px 816px #fff, 83px 456px #fff, 930px 1478px #fff,
-    1587px 1694px #fff, 614px 1200px #fff, 302px 1782px #fff, 1711px 1432px #fff,
-    443px 904px #fff, 1666px 714px #fff, 1588px 1167px #fff, 273px 1075px #fff,
-    1679px 461px #fff, 721px 664px #fff, 1202px 10px #fff, 166px 1126px #fff,
-    331px 1628px #fff, 430px 1565px #fff, 1585px 509px #fff, 640px 38px #fff,
-    822px 837px #fff, 1760px 1664px #fff, 1122px 1458px #fff, 398px 131px #fff,
-    689px 285px #FFFFE5, 460px 652px #fff, 1627px 365px #fff, 348px 1648px #fff,
-    819px 1946px #fff, 981px 1917px #fff, 323px 76px #E5EDFF, 979px 684px #fff,
-    887px 536px #fff, 1348px 1596px #fff, 1055px 666px #fff, 1402px 1797px #fff,
-    1300px 1055px #fff, 937px 238px #fff, 1474px 1815px #fff, 1144px 1710px #fff,
-    1629px 1087px #fff, 911px 919px #E5EDFF, 771px 819px #FFFFE5, 403px 720px #fff,
-    163px 736px #fff, 1062px 238px #fff, 1774px 818px #FFE5EA, 1874px 1178px #fff,
-    1177px 699px #fff, 1244px 1244px #fff, 1371px 58px #fff, 564px 1515px #fff,
-    1824px 487px #fff, 929px 702px #fff, 394px 1348px #fff, 1161px 641px #fff,
-    219px 1841px #fff, 358px 941px #FFE5EA, 140px 1759px #fff, 1019px 1345px #fff,
-    274px 436px #fff, 1433px 1605px #fff, 1798px 1426px #fff, 294px 1848px #fff,
-    1681px 1877px #fff, 1344px 1824px #fff, 1439px 1632px #fff,
-    161px 1012px #fff, 1308px 588px #fff, 1789px 582px #fff, 721px 1910px #fff,
-    318px 218px #fff, 607px 319px #fff, 495px 535px #fff, 1552px 1575px #fff,
-    1562px 67px #fff, 403px 926px #fff, 1096px 1800px #fff, 1814px 1709px #fff,
-    1882px 1831px #fff;
-}
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      padding: 20px 0 60px 0;
+      text-align: center;
+    }
 
-@keyframes animStar {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-1780px);
-  }
-}
-</style>
+    a {
+      color: inherit;
+    }
+
+    /* ==========================================
+       星空背景アニメーション (#stars)
+       ========================================== */
+    #stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: 
+        768px 1070px #fff, 468px 194px #fff, 320px 1867px #fff, 1850px 185px #fff,
+        380px 1616px #fff, 468px 1294px #fff, 1122px 1743px #fff, 884px 299px #fff,
+        1300px 1917px #fff, 1860px 396px #fff, 1270px 990px #fff, 529px 733px #fff,
+        1975px 1347px #fff, 1885px 685px #fff, 226px 506px #fff, 651px 878px #fff,
+        1323px 680px #fff, 1284px 680px #fff, 238px 1967px #fff, 911px 174px #fff;
+    }
+
+    /* ==========================================
+       透明ボックス スタイル
+       ========================================== */
+    .box {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
+      background: linear-gradient(to right, #010633, #000000);
+      text-align: center;
+      padding: 15px 20px;
+      box-sizing: border-box;
+      border-radius: 8px;
+    }
+
+    .sub-text-1 {
+      font-size: 18px;
+      color: #ffc1ff;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .sub-text-2 {
+      font-size: 18px;
+      color: #c1c1ff;
+      display: block;
+    }
+
+    /* 更新履歴ボックス */
+    .box2 {
+      background-color: rgba(2, 8, 60, 0.5);
+      color: #fff;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 650px;
+      background: linear-gradient(to right, #010633, #000000);
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      line-height: 1.8;
+    }
+
+    .history-title {
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .history-date {
+      color: #e0c1ff;
+    }
+
+    .history-highlight {
+      color: #ffc1e0;
+    }
+
+    /* ==========================================
+       レイアウト用グリッド（2列並びを崩さない）
+       ========================================== */
+    .grid-2col {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 180px;
+    }
+
+    .btn-desc {
+      font-size: 14px;
+      color: #bf92fc;
+      margin-top: 10px;
+    }
+
+    .section-margin {
+      margin-bottom: 50px;
+    }
+
+    /* アイコン画像グループ */
+    .icon-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .icon-group img {
+      transition: transform 0.2s;
+    }
+
+    .icon-group img:hover {
+      transform: scale(1.05);
+    }
+
+    .header-banner {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* ==========================================
+       ボタン演出
+       ========================================== */
+    .btn-glow2 {
+      display: inline-block;
+    }
+
+    .btn-glow {
+      color: #fff !important;
+      display: inline-block;
+      background: linear-gradient(to right, rgba(138, 97, 248, 1) 0%, rgba(236, 159, 231, 1) 100%);
+      border: none;
+      text-align: center;
+      font-size: 20px;
+      line-height: 50px;
+      letter-spacing: 0.07em;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      padding: 0 30px;
+      transition: 0.3s;
+      animation: glow 3s infinite ease-out;
+      border-radius: 50px;
+      min-width: 120px;
+      box-sizing: border-box;
+    }
+
+    .btn-glow:hover {
+      background: linear-gradient(to right, rgba(203, 139, 232, 1) 0%, rgba(117, 68, 246, 1) 100%);
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 20px rgba(139, 97, 248, 0.27); }
+      50% { box-shadow: 0 0 100px rgba(139, 97, 248, 0.93); }
+      100% { box-shadow: 0 0 20px rgba(139, 97, 248, 0.27); }
+    }
+
+    .btn-hover-shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-hover-shine:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      right: 80%;
+      width: 1px;
+      background-color: rgba(255, 255, 255, 0);
+      opacity: 1;
+    }
+
+    .btn-hover-shine:hover:after {
+      right: 2%;
+      background-color: #ffffff;
+      box-shadow: 0 0 30px #ffd2fe;
+      opacity: 0;
+      transition: 0.6s;
+    }
+
+    .copyright {
+      color: #9966ff;
+      font-size: 16px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="stars"></div>
-  <div id="stars2"></div>
+  <div class="wrapper">
+    <!-- 星空背景 -->
+    <div id="stars"></div>
+
+    <!-- メインヘッダー画像 -->
+    <img src="/image/chabiland20251121_2.png" alt="chabi land" class="header-banner" width="594" height="154">
+
+    <!-- 透明ボックス1 -->
+    <div class="box">
+      <span class="sub-text-1">ADV・ノベルゲーム制作&ensp;チャビノスケのWebサイト</span>
+      <span class="sub-text-2">ゲーム 他 色々まとめです</span>
+    </div>
+
+    <div style="height: 40px;"></div>
+
+    <!-- ボタンエリア 1 (Read me / Game) -->
+    <div class="grid-2col">
+      <div class="grid-item">
+        <div class="btn-glow2">
+          <a href="readme.html" target="_blank" class="btn-glow btn-hover-shine">Read me</a>
+        </div>
+        <div class="btn-desc">規約など</div>
+      </div>
+
+      <div class="grid-item">
+        <div class="btn-glow2">
+          <a href="https://chabinosukede.gozaru.jp/game.html" target="_blank" class="btn-glow btn-hover-shine">Game</a>
+        </div>
+        <div class="btn-desc">制作したゲーム</div>
+      </div>
+    </div>
+
+    <!-- ボタンエリア 2 (Ci-en / Event) -->
+    <div class="grid-2col">
+      <div class="grid-item">
+        <div class="btn-glow2">
+          <a href="https://ci-en.net/creator/27222" target="_blank" class="btn-glow btn-hover-shine">Ci-en</a>
+        </div>
+        <div class="btn-desc">最新の進捗</div>
+      </div>
+
+      <div class="grid-item">
+        <div class="btn-glow2">
+          <a href="https://chabinosukede.gozaru.jp/event.html" target="_blank" class="btn-glow btn-hover-shine">Event</a>
+        </div>
+        <div class="btn-desc">参加イベント</div>
+      </div>
+    </div>
+
+    <!-- アイコン画像 1 -->
+    <div class="icon-group">
+      <a href="https://novelgame.jp/users/profile/15990" target="_blank">
+        <img src="image/nvc_new1.png" onmouseover="this.src='image/nvc_new2.png'" onmouseout="this.src='image/nvc_new1.png'" width="130" height="130" alt="ノベルゲームコレクション">
+      </a>
+      <a href="https://chabinosuke.booth.pm/" target="_blank">
+        <img src="image/new_booth1.png" onmouseover="this.src='image/new_booth02.png'" onmouseout="this.src='image/new_booth1.png'" width="130" height="130" alt="BOOTH">
+      </a>
+      <a href="https://marshmallow-qa.com/qccg6c00ohf19y7" target="_blank">
+        <img src="image/message01_3.png" onmouseover="this.src='image/message02_3.png'" onmouseout="this.src='image/message01_3.png'" width="130" height="130" alt="マシュマロ">
+      </a>
+    </div>
+
+    <!-- その他バナー -->
+    <div class="section-margin">
+      <img src="/image/others3.png" width="500" height="110" alt="others" style="max-width: 100%; height: auto;">
+    </div>
+
+    <!-- SNSアイコン画像 -->
+    <div class="icon-group">
+      <a href="https://x.com/chabinosuke_" target="_blank">
+        <img src="image/x_new001.png" onmouseover="this.src='image/x_new002.png'" onmouseout="this.src='image/x_new001.png'" width="130" height="130" alt="X">
+      </a>
+      <a href="https://bsky.app/profile/chabinosuke.bsky.social" target="_blank">
+        <img src="image/bs000001.png" onmouseover="this.src='image/bs000002.png'" onmouseout="this.src='image/bs000001.png'" width="130" height="130" alt="Bluesky">
+      </a>
+      <a href="https://note.com/chabinosuke___13" target="_blank">
+        <img src="image/note01_4.png" onmouseover="this.src='image/note02_2.png'" onmouseout="this.src='image/note01_4.png'" width="130" height="130" alt="note">
+      </a>
+    </div>
+
+    <div style="height: 30px;"></div>
+
+    <!-- ボタンエリア 3 (next list / YouTube) -->
+    <div class="grid-2col">
+      <div class="grid-item">
+        <div class="btn-glow2">
+          <a href="https://note.com/" target="_blank" class="btn-glow btn-hover-shine">next list</a>
+        </div>
+        <div class="btn-desc">調整中&#x203B;制作したいもの</div>
+      </div>
+
+      <div class="grid-item">
+        <div class="btn-glow2">
+          <a href="https://www.youtube.com/@chabinosuke" target="_blank" class="btn-glow btn-hover-shine">YouTube</a>
+        </div>
+        <div class="btn-desc">制作した動画</div>
+      </div>
+    </div>
+
+    <!-- ボタンエリア 4 (Illustration / Manga) -->
+    <div class="grid-2col">
+      <div class="grid-item">
+        <div class="btn-glow2">
+          <a href="https://note.com/chabinosuke___13/m/mb4c3312d3bcb" target="_blank" class="btn-glow btn-hover-shine">Illustration</a>
+        </div>
+        <div class="btn-desc">イラスト</div>
+      </div>
+
+      <div class="grid-item">
+        <div class="btn-glow2">
+          <a href="https://note.com/chabinosuke___13/m/m2fb83ca42a49" target="_blank" class="btn-glow btn-hover-shine">Manga</a>
+        </div>
+        <div class="btn-desc">極短マンガ</div>
+      </div>
+    </div>
+
+    <!-- メール / 問い合わせ -->
+    <div class="section-margin">
+      <a href="https://chabinosukede.gozaru.jp/info.html" target="_blank">
+        <img src="image/mail_new1.png" onmouseover="this.src='image/mail_new2.png'" onmouseout="this.src='image/mail_new1.png'" width="130" height="130" alt="Mail">
+      </a>
+    </div>
+
+    <!-- リンクボタン -->
+    <div class="section-margin">
+      <div class="btn-glow2">
+        <a href="https://chabinosukede.gozaru.jp/link.html" target="_blank" class="btn-glow btn-hover-shine">Link</a>
+      </div>
+      <div class="btn-desc">リンクまとめ</div>
+    </div>
+
+    <!-- 更新履歴ボックス -->
+    <div class="box2">
+      <div class="history-title">更新履歴</div>
+      <div>
+        <span class="history-date">2026/07/27 &ensp; CI-EN &ensp; 推し押しHOLIC &ensp;</span>
+        <span class="history-highlight">進捗５&#10028;更新</span>
+      </div>
+      <div>
+        <span class="history-date">2026/07/22 &ensp; README &ensp;</span>
+        <span class="history-highlight">Added an English version.</span>
+      </div>
+    </div>
+
+    <!-- コピーライト -->
+    <div class="copyright">
+      © 2020 chabinosuke_<a href="https://chabinosukede.gozaru.jp/" target="_blank">.</a>
+    </div>
+
+  </div>
 </body>
 </html>
