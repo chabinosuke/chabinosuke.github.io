@@ -59,7 +59,6 @@
       pointer-events: none;
     }
 
-    /* 1つ目：小星 (1px) */
     #stars {
       width: 1px;
       height: 1px;
@@ -71,7 +70,6 @@
         1629px 835px #fff, 479px 969px #fff, 1231px 960px #fff, 586px 384px #fff, 696px 1654px #fff, 1144px 60px #fff;
     }
 
-    /* 2つ目：小星のループ用複製 (:after) */
     #stars:after {
       content: '';
       position: absolute;
@@ -86,7 +84,6 @@
         1629px 835px #fff, 479px 969px #fff, 1231px 960px #fff, 586px 384px #fff, 696px 1654px #fff, 1144px 60px #fff;
     }
 
-    /* 3つ目：中星 (2px) */
     #stars2 {
       width: 2px;
       height: 2px;
@@ -96,7 +93,6 @@
         569px 1832px #FEF4F8, 1422px 1684px #FEF4F8, 1946px 1907px #fff, 986px 1529px #fff, 1667px 1137px #fff;
     }
 
-    /* 4つ目：中星のループ用複製 (:after) */
     #stars2:after {
       content: '';
       position: absolute;
@@ -218,16 +214,17 @@
     }
 
     /* ==========================================
-       【二重ボタン】縦幅は上と同じ・左右のみはみ出る構造
+       【二重ボタン】縦幅を完全一致・左右のみはみ出る構造
        ========================================== */
-    /* 下側の土台ボタン（左右のみはみ出るように横パディングを設定） */
     .btn-glow2 {
       display: inline-block;
       position: relative;
       background: #7544f6;
       background: linear-gradient(to right, rgba(117,68,246,1) 0%, rgba(203,139,232,1) 100%);
       border-radius: 50px;
-      padding: 0 16px; /* 左右のみはみ出る幅 */
+      padding: 0 16px;
+      height: 53px;
+      box-sizing: border-box;
       animation: glow 3s infinite ease-out;
       vertical-align: middle;
     }
@@ -242,7 +239,6 @@
       100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
     }
 
-    /* 上側のメインボタン（縦幅は同じ、上下のマージン・パディングを一致） */
     .btn-glow {
       color: #fff !important;
       display: inline-block;
@@ -251,6 +247,7 @@
       text-align: center;
       font-size: 22px;
       line-height: 53px;
+      height: 53px;
       letter-spacing: 0.07em;
       text-decoration: none !important;
       text-transform: uppercase;
@@ -259,7 +256,8 @@
       border-radius: 50px;
       position: relative;
       z-index: 1;
-      margin: 0; /* 縦幅を下のボタンと完全に一致させる */
+      margin: 0;
+      box-sizing: border-box;
     }
 
     .btn-hover-shine {
