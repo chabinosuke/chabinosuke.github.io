@@ -18,7 +18,10 @@
       min-height: 100vh;
       background-color: #070a14;
       color: #fff;
-      font-family: sans-serif;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      font-weight: 300; /* 全体の文字を細く */
+      -webkit-font-smoothing: antialiased; /* 文字の描画を綺麗・細身にする */
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       position: relative;
     }
@@ -124,12 +127,14 @@
       color: #ffc1ff;
       display: block;
       margin-bottom: 5px;
+      font-weight: 300; /* 細字指定 */
     }
 
     .sub-text-2 {
       font-size: 18px;
       color: #c1c1ff;
       display: block;
+      font-weight: 300; /* 細字指定 */
     }
 
     .box2 {
@@ -141,21 +146,24 @@
       padding: 20px 0;
       box-sizing: border-box;
       line-height: 1.8;
+      font-weight: 300; /* 細字指定 */
     }
 
     .history-title {
       font-size: 18px;
       color: #ffffff;
       margin-bottom: 10px;
-      font-weight: bold;
+      font-weight: 400; /* タイトルも標準程度の太さに落とす */
     }
 
     .history-date {
       color: #e0c1ff;
+      font-weight: 300;
     }
 
     .history-highlight {
       color: #ffc1e0;
+      font-weight: 300;
     }
 
     /* ==========================================
@@ -179,6 +187,7 @@
       font-size: 14px;
       color: #bf92fc;
       margin-top: 10px;
+      font-weight: 300; /* 細字指定 */
     }
 
     .section-margin {
@@ -241,6 +250,7 @@
       border: none;
       text-align: center;
       font-size: 22px;
+      font-weight: 300; /* ボタン文字を細く指定 */
       line-height: 53px;
       height: 53px;
       letter-spacing: 0.07em;
@@ -285,22 +295,20 @@
       color: #9966ff;
       font-size: 16px;
       margin-top: 30px;
+      font-weight: 300; /* 細字指定 */
     }
   </style>
 </head>
 
 <body>
-  <!-- 4重の星空要素 -->
   <div id="stars"></div>
   <div id="stars2"></div>
   <div id="stars3"></div>
   <div id="stars4"></div>
 
   <div class="wrapper">
-    <!-- ヘッダー画像 -->
     <img src="/image/chabiland20251121_2.png" alt="chabi land" class="header-banner" width="594" height="154">
 
-    <!-- 端から端までの透明ボックス -->
     <div class="box">
       <span class="sub-text-1">ADV・ノベルゲーム制作&ensp;チャビノスケのWebサイト</span>
       <span class="sub-text-2">ゲーム 他 色々まとめです</span>
@@ -308,7 +316,6 @@
 
     <div style="height: 30px;"></div>
 
-    <!-- ボタン 1 (Read me / Game) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
@@ -325,7 +332,6 @@
       </div>
     </div>
 
-    <!-- ボタン 2 (Ci-en / Event) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
@@ -342,7 +348,6 @@
       </div>
     </div>
 
-    <!-- アイコン画像 1 -->
     <div class="icon-group">
       <a href="https://novelgame.jp/users/profile/15990" target="_blank">
         <img src="image/nvc_new1.png" onmouseover="this.src='image/nvc_new2.png'" onmouseout="this.src='image/nvc_new1.png'" width="130" height="130" alt="ノベルゲームコレクション">
@@ -355,12 +360,10 @@
       </a>
     </div>
 
-    <!-- OTHERSバナー -->
     <div class="section-margin">
       <img src="/image/others3.png" width="500" height="110" alt="others" style="max-width: 100%; height: auto;">
     </div>
 
-    <!-- SNSアイコン画像 -->
     <div class="icon-group">
       <a href="https://x.com/chabinosuke_" target="_blank">
         <img src="image/x_new001.png" onmouseover="this.src='image/x_new002.png'" onmouseout="this.src='image/x_new001.png'" width="130" height="130" alt="X">
@@ -375,7 +378,6 @@
 
     <div style="height: 20px;"></div>
 
-    <!-- ボタン 3 (next list / YouTube) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
@@ -392,7 +394,6 @@
       </div>
     </div>
 
-    <!-- ボタン 4 (Illustration / Manga) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
@@ -409,14 +410,12 @@
       </div>
     </div>
 
-    <!-- メールアイコン -->
     <div class="section-margin">
       <a href="https://chabinosukede.gozaru.jp/info.html" target="_blank">
         <img src="image/mail_new1.png" onmouseover="this.src='image/mail_new2.png'" onmouseout="this.src='image/mail_new1.png'" width="130" height="130" alt="Mail">
       </a>
     </div>
 
-    <!-- Linkボタン -->
     <div class="section-margin">
       <div class="btn-glow2">
         <a href="https://chabinosukede.gozaru.jp/link.html" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Link&nbsp;&emsp;&nbsp;</a>
@@ -424,7 +423,6 @@
       <div class="btn-desc">リンクまとめ</div>
     </div>
 
-    <!-- 更新履歴 -->
     <div class="box2">
       <div class="history-title">更新履歴</div>
       <div>
@@ -437,16 +435,12 @@
       </div>
     </div>
 
-    <!-- コピーライト -->
     <div class="copyright">
       © 2020 chabinosuke_<a href="https://chabinosukede.gozaru.jp/" target="_blank">.</a>
     </div>
 
   </div>
 
-  <!-- ==========================================
-     星空自動生成用 JavaScript (ここに追記するだけ!)
-     ========================================== -->
   <script>
     // 指定した個数・色の星座標を自動生成する関数
     function generateStars(count, colors = ['#ffffff']) {
@@ -463,7 +457,7 @@
     // 星の生成ルールを定義するスタイルの作成
     const starColors = ['#ffffff', '#ffffff', '#fef4f8', '#e0c1ff']; // 白ベース＋淡いピンク紫
     
-    // それぞれの層に星の影を適用 (元の星空並みに高密度に配置)
+    // それぞれの層に星の影を適用
     const styleElem = document.createElement('style');
     styleElem.innerHTML = `
       #stars, #stars::after { box-shadow: ${generateStars(400, starColors)}; }
