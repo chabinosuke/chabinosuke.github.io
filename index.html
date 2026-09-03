@@ -16,7 +16,6 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      /* ベース背景色 */
       background-color: #070a14;
       color: #fff;
       font-family: sans-serif;
@@ -24,7 +23,7 @@
       position: relative;
     }
 
-    /* 切れ目を完全解消した「下からのピンク紫グラデーション」 */
+    /* 下部からのピンク紫グラデーション */
     body::after {
       content: '';
       position: fixed;
@@ -49,9 +48,9 @@
     }
 
     /* ==========================================
-       完全な4層構造（サイズ・速度違い）の動く星空
+       オリジナルの星空構造 (#stars, #stars:after, #stars2, #stars2:after)
        ========================================== */
-    #stars, #stars2, #stars3, #stars4 {
+    #stars, #stars2 {
       position: fixed;
       top: 0;
       left: 0;
@@ -60,56 +59,63 @@
       pointer-events: none;
     }
 
-    /* 1層目：極小・一番速い（30秒） */
+    /* 1つ目：小星 (1px) */
     #stars {
       width: 1px;
       height: 1px;
-      animation: animStar 30s linear infinite;
+      animation: animStar 180s linear infinite;
       box-shadow: 
-        100px 300px #fff, 400px 800px #fff, 700px 100px #fff, 1100px 1500px #fff,
-        1500px 400px #fff, 200px 1200px #fff, 900px 600px #fff, 1300px 1800px #fff,
-        300px 1700px #fff, 800px 1100px #fff, 1200px 200px #fff, 1600px 900px #fff,
-        500px 1400px #fff, 1000px 500px #fff, 1400px 1300px #fff, 50px 700px #fff;
+        779px 1331px #fff, 324px 42px #fff, 303px 586px #fff, 1312px 276px #fff, 451px 625px #fff,
+        521px 1931px #fff, 1087px 1871px #fff, 36px 1546px #fff, 132px 934px #fff, 1698px 901px #fff,
+        1418px 664px #fff, 1448px 1157px #fff, 1084px 232px #fff, 347px 1776px #fff, 1722px 243px #fff,
+        1629px 835px #fff, 479px 969px #fff, 1231px 960px #fff, 586px 384px #fff, 696px 1654px #fff, 1144px 60px #fff;
     }
 
-    /* 2層目：小・速い（60秒） */
+    /* 2つ目：小星のループ用複製 (:after) */
+    #stars:after {
+      content: '';
+      position: absolute;
+      top: 1780px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: 
+        779px 1331px #fff, 324px 42px #fff, 303px 586px #fff, 1312px 276px #fff, 451px 625px #fff,
+        521px 1931px #fff, 1087px 1871px #fff, 36px 1546px #fff, 132px 934px #fff, 1698px 901px #fff,
+        1418px 664px #fff, 1448px 1157px #fff, 1084px 232px #fff, 347px 1776px #fff, 1722px 243px #fff,
+        1629px 835px #fff, 479px 969px #fff, 1231px 960px #fff, 586px 384px #fff, 696px 1654px #fff, 1144px 60px #fff;
+    }
+
+    /* 3つ目：中星 (2px) */
     #stars2 {
-      width: 1.5px;
-      height: 1.5px;
-      animation: animStar 60s linear infinite;
-      box-shadow: 
-        250px 150px #fff, 650px 950px #fff, 1050px 350px #fff, 1450px 1150px #fff,
-        150px 1750px #fff, 850px 450px #fff, 1250px 1450px #fff, 450px 650px #fff,
-        950px 1650px #fff, 1350px 750px #fff, 350px 1050px #fff, 1750px 250px #fff;
-    }
-
-    /* 3層目：中・ゆったり（90秒） */
-    #stars3 {
       width: 2px;
       height: 2px;
-      animation: animStar 90s linear infinite;
+      animation: animStar 150s linear infinite;
       box-shadow: 
-        180px 600px #fff, 580px 1300px #fff, 980px 200px #fff, 1380px 900px #fff,
-        380px 1600px #fff, 780px 400px #fff, 1180px 1100px #fff, 1580px 1800px #fff;
+        1448px 320px #fff, 1775px 1663px #fff, 332px 1364px #fff, 878px 340px #FEF4F8,
+        569px 1832px #FEF4F8, 1422px 1684px #FEF4F8, 1946px 1907px #fff, 986px 1529px #fff, 1667px 1137px #fff;
     }
 
-    /* 4層目：大・一番ゆっくり＆ほんのりピンク紫（120秒） */
-    #stars4 {
-      width: 2.5px;
-      height: 2.5px;
-      animation: animStar 120s linear infinite;
+    /* 4つ目：中星のループ用複製 (:after) */
+    #stars2:after {
+      content: '';
+      position: absolute;
+      top: 1780px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
       box-shadow: 
-        300px 900px #ffd2fe, 800px 200px #c1c1ff, 1200px 1400px #fff, 1600px 500px #ffd2fe,
-        100px 1600px #fff, 600px 700px #c1c1ff, 1400px 1000px #ffd2fe;
+        1448px 320px #fff, 1775px 1663px #fff, 332px 1364px #fff, 878px 340px #FEF4F8,
+        569px 1832px #FEF4F8, 1422px 1684px #FEF4F8, 1946px 1907px #fff, 986px 1529px #fff, 1667px 1137px #fff;
     }
 
     @keyframes animStar {
       from { transform: translateY(0px); }
-      to { transform: translateY(-2000px); }
+      to { transform: translateY(-1780px); }
     }
 
     /* ==========================================
-       透明ボックス & 更新履歴 (端から端まで)
+       透明ボックス & 更新履歴
        ========================================== */
     .box {
       width: 100%;
@@ -162,7 +168,7 @@
     }
 
     /* ==========================================
-       レイアウト用グリッド（2列並び・中央揃え）
+       レイアウト用グリッド
        ========================================== */
     .grid-2col {
       display: flex;
@@ -212,43 +218,48 @@
     }
 
     /* ==========================================
-       【添付画像そのままの完全二重ボタン構造】
+       【二重ボタン】縦幅は上と同じ・左右のみはみ出る構造
        ========================================== */
-    /* 下側の土台ボタン（濃い青紫＋周囲の発光オーラ） */
+    /* 下側の土台ボタン（左右のみはみ出るように横パディングを設定） */
     .btn-glow2 {
       display: inline-block;
       position: relative;
       background: #7544f6;
-      background: linear-gradient(to right, #6b34f5 0%, #b867e0 100%);
+      background: linear-gradient(to right, rgba(117,68,246,1) 0%, rgba(203,139,232,1) 100%);
       border-radius: 50px;
-      padding: 0 16px; /* 横にはみ出させる余白 */
+      padding: 0 16px; /* 左右のみはみ出る幅 */
       animation: glow 3s infinite ease-out;
+      vertical-align: middle;
+    }
+
+    .btn-glow2:hover {
+      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
     }
 
     @keyframes glow {
-      0% { box-shadow: 0 0 20px #8b61f866; }
-      50% { box-shadow: 0 0 50px #8b61f8ee; }
-      100% { box-shadow: 0 0 20px #8b61f866; }
+      0% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 0px #fff; }
+      50% { box-shadow: 0 0 50px #8b61f8ee; text-shadow: 0 0 30px #fff; }
+      100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
     }
 
-    /* 上側に少し小さく重ねるメインボタン（明るいグラデーション） */
+    /* 上側のメインボタン（縦幅は同じ、上下のマージン・パディングを一致） */
     .btn-glow {
       color: #fff !important;
       display: inline-block;
-      background: linear-gradient(to right, #9d6eff 0%, #e8a5f8 100%);
+      background: linear-gradient(to right, rgba(157,110,255,1) 0%, rgba(232,165,248,1) 100%);
       border: none;
       text-align: center;
-      font-size: 20px;
-      line-height: 48px;
+      font-size: 22px;
+      line-height: 53px;
       letter-spacing: 0.07em;
       text-decoration: none !important;
       text-transform: uppercase;
-      padding: 0 25px;
+      padding: 0 20px;
       transition: 0.3s;
       border-radius: 50px;
-      margin: 3px 0; /* 下側ボタンが見えるように上下余白 */
       position: relative;
       z-index: 1;
+      margin: 0; /* 縦幅を下のボタンと完全に一致させる */
     }
 
     .btn-hover-shine {
@@ -288,8 +299,6 @@
 <body>
   <div id="stars"></div>
   <div id="stars2"></div>
-  <div id="stars3"></div>
-  <div id="stars4"></div>
 
   <div class="wrapper">
     <img src="/image/chabiland20251121_2.png" alt="chabi land" class="header-banner" width="594" height="154">
@@ -304,14 +313,14 @@
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="readme.html" target="_blank" class="btn-glow btn-hover-shine">Read me</a>
+          <a href="readme.html" target="_blank" class="btn-glow btn-hover-shine">&ensp;Read me&ensp;</a>
         </div>
         <div class="btn-desc">規約など</div>
       </div>
 
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://chabinosukede.gozaru.jp/game.html" target="_blank" class="btn-glow btn-hover-shine">&ensp;Game&ensp;</a>
+          <a href="https://chabinosukede.gozaru.jp/game.html" target="_blank" class="btn-glow btn-hover-shine">&emsp;&ensp;Game&ensp;&emsp;</a>
         </div>
         <div class="btn-desc">制作したゲーム</div>
       </div>
@@ -320,14 +329,14 @@
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://ci-en.net/creator/27222" target="_blank" class="btn-glow btn-hover-shine">&nbsp;Ci-en&nbsp;</a>
+          <a href="https://ci-en.net/creator/27222" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Ci-en&emsp;&nbsp;</a>
         </div>
         <div class="btn-desc">最新の進捗</div>
       </div>
 
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://chabinosukede.gozaru.jp/event.html" target="_blank" class="btn-glow btn-hover-shine">&nbsp;Event&nbsp;</a>
+          <a href="https://chabinosukede.gozaru.jp/event.html" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Event&emsp;&nbsp;</a>
         </div>
         <div class="btn-desc">参加イベント</div>
       </div>
@@ -366,14 +375,14 @@
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://note.com/" target="_blank" class="btn-glow btn-hover-shine">next list</a>
+          <a href="https://note.com/" target="_blank" class="btn-glow btn-hover-shine">&emsp;next&nbsp;list&emsp;</a>
         </div>
         <div class="btn-desc">調整中&#x203B;制作したいもの</div>
       </div>
 
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://www.youtube.com/@chabinosuke" target="_blank" class="btn-glow btn-hover-shine">YouTube</a>
+          <a href="https://www.youtube.com/@chabinosuke" target="_blank" class="btn-glow btn-hover-shine">&emsp;YouTube&emsp;</a>
         </div>
         <div class="btn-desc">制作した動画</div>
       </div>
@@ -389,7 +398,7 @@
 
       <div class="grid-item">
         <div class="btn-glow2">
-          <a href="https://note.com/chabinosuke___13/m/m2fb83ca42a49" target="_blank" class="btn-glow btn-hover-shine">&nbsp;Manga&nbsp;</a>
+          <a href="https://note.com/chabinosuke___13/m/m2fb83ca42a49" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Manga&nbsp;&emsp;&nbsp;</a>
         </div>
         <div class="btn-desc">極短マンガ</div>
       </div>
@@ -403,7 +412,7 @@
 
     <div class="section-margin">
       <div class="btn-glow2">
-        <a href="https://chabinosukede.gozaru.jp/link.html" target="_blank" class="btn-glow btn-hover-shine">&nbsp;Link&nbsp;</a>
+        <a href="https://chabinosukede.gozaru.jp/link.html" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Link&nbsp;&emsp;&nbsp;</a>
       </div>
       <div class="btn-desc">リンクまとめ</div>
     </div>
