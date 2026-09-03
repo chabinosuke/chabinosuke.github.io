@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>チャビノスケのWebサイト</title>
+  
+  <!-- 超極細フォント(Weight: 100)の読み込み -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+
   <style>
     /* ==========================================
        全体基本設定 & 切れ目のないグラデーション背景
@@ -18,9 +24,9 @@
       min-height: 100vh;
       background-color: #070a14;
       color: #fff;
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-      font-weight: 300; /* 全体の文字を細く */
-      -webkit-font-smoothing: antialiased; /* 文字の描画を綺麗・細身にする */
+      font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+      font-weight: 100; /* 極細指定 */
+      -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       position: relative;
@@ -51,7 +57,7 @@
     }
 
     /* ==========================================
-       4重の星空構造 (CSS側は超スッキリ!)
+       4重の星空構造
        ========================================== */
     #stars, #stars2, #stars3, #stars4 {
       position: fixed;
@@ -66,11 +72,11 @@
     #stars::after, #stars2::after, #stars3::after, #stars4::after {
       content: '';
       position: absolute;
-      top: 1780px; /* アニメーションの距離と一致 */
+      top: 1780px;
       background: transparent;
     }
 
-    /* 1層目：超小粒 (1px / 180s / 超低速) */
+    /* 1層目：超小粒 */
     #stars {
       width: 1px;
       height: 1px;
@@ -78,7 +84,7 @@
     }
     #stars::after { width: 1px; height: 1px; }
 
-    /* 2層目：小粒 (2px / 150s / 低速) */
+    /* 2層目：小粒 */
     #stars2 {
       width: 2px;
       height: 2px;
@@ -86,7 +92,7 @@
     }
     #stars2::after { width: 2px; height: 2px; }
 
-    /* 3層目：中粒 (2px / 120s / 中速) */
+    /* 3層目：中粒 */
     #stars3 {
       width: 2px;
       height: 2px;
@@ -94,7 +100,7 @@
     }
     #stars3::after { width: 2px; height: 2px; }
 
-    /* 4層目：大粒 (3px / 90s / 高速) */
+    /* 4層目：大粒 */
     #stars4 {
       width: 3px;
       height: 3px;
@@ -127,14 +133,16 @@
       color: #ffc1ff;
       display: block;
       margin-bottom: 5px;
-      font-weight: 300; /* 細字指定 */
+      font-weight: 100; /* 極細 */
+      letter-spacing: 0.05em;
     }
 
     .sub-text-2 {
       font-size: 18px;
       color: #c1c1ff;
       display: block;
-      font-weight: 300; /* 細字指定 */
+      font-weight: 100; /* 極細 */
+      letter-spacing: 0.05em;
     }
 
     .box2 {
@@ -146,24 +154,26 @@
       padding: 20px 0;
       box-sizing: border-box;
       line-height: 1.8;
-      font-weight: 300; /* 細字指定 */
+      font-weight: 100; /* 極細 */
+      letter-spacing: 0.05em;
     }
 
     .history-title {
       font-size: 18px;
       color: #ffffff;
       margin-bottom: 10px;
-      font-weight: 400; /* タイトルも標準程度の太さに落とす */
+      font-weight: 100; /* 極細 */
+      letter-spacing: 0.1em;
     }
 
     .history-date {
       color: #e0c1ff;
-      font-weight: 300;
+      font-weight: 100; /* 極細 */
     }
 
     .history-highlight {
       color: #ffc1e0;
-      font-weight: 300;
+      font-weight: 100; /* 極細 */
     }
 
     /* ==========================================
@@ -187,7 +197,8 @@
       font-size: 14px;
       color: #bf92fc;
       margin-top: 10px;
-      font-weight: 300; /* 細字指定 */
+      font-weight: 100; /* 極細 */
+      letter-spacing: 0.05em;
     }
 
     .section-margin {
@@ -250,10 +261,10 @@
       border: none;
       text-align: center;
       font-size: 22px;
-      font-weight: 300; /* ボタン文字を細く指定 */
+      font-weight: 100; /* ボタン内テキストも極細 */
       line-height: 53px;
       height: 53px;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.08em;
       text-decoration: none !important;
       text-transform: uppercase;
       padding: 0 20px;
@@ -295,20 +306,24 @@
       color: #9966ff;
       font-size: 16px;
       margin-top: 30px;
-      font-weight: 300; /* 細字指定 */
+      font-weight: 100; /* 極細 */
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
 
 <body>
+  <!-- 4重の星空要素 -->
   <div id="stars"></div>
   <div id="stars2"></div>
   <div id="stars3"></div>
   <div id="stars4"></div>
 
   <div class="wrapper">
+    <!-- ヘッダー画像 -->
     <img src="/image/chabiland20251121_2.png" alt="chabi land" class="header-banner" width="594" height="154">
 
+    <!-- 端から端までの透明ボックス -->
     <div class="box">
       <span class="sub-text-1">ADV・ノベルゲーム制作&ensp;チャビノスケのWebサイト</span>
       <span class="sub-text-2">ゲーム 他 色々まとめです</span>
@@ -316,6 +331,7 @@
 
     <div style="height: 30px;"></div>
 
+    <!-- ボタン 1 (Read me / Game) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
@@ -332,6 +348,7 @@
       </div>
     </div>
 
+    <!-- ボタン 2 (Ci-en / Event) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
@@ -348,6 +365,7 @@
       </div>
     </div>
 
+    <!-- アイコン画像 1 -->
     <div class="icon-group">
       <a href="https://novelgame.jp/users/profile/15990" target="_blank">
         <img src="image/nvc_new1.png" onmouseover="this.src='image/nvc_new2.png'" onmouseout="this.src='image/nvc_new1.png'" width="130" height="130" alt="ノベルゲームコレクション">
@@ -360,10 +378,12 @@
       </a>
     </div>
 
+    <!-- OTHERSバナー -->
     <div class="section-margin">
       <img src="/image/others3.png" width="500" height="110" alt="others" style="max-width: 100%; height: auto;">
     </div>
 
+    <!-- SNSアイコン画像 -->
     <div class="icon-group">
       <a href="https://x.com/chabinosuke_" target="_blank">
         <img src="image/x_new001.png" onmouseover="this.src='image/x_new002.png'" onmouseout="this.src='image/x_new001.png'" width="130" height="130" alt="X">
@@ -378,6 +398,7 @@
 
     <div style="height: 20px;"></div>
 
+    <!-- ボタン 3 (next list / YouTube) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
@@ -394,6 +415,7 @@
       </div>
     </div>
 
+    <!-- ボタン 4 (Illustration / Manga) -->
     <div class="grid-2col">
       <div class="grid-item">
         <div class="btn-glow2">
@@ -410,12 +432,14 @@
       </div>
     </div>
 
+    <!-- メールアイコン -->
     <div class="section-margin">
       <a href="https://chabinosukede.gozaru.jp/info.html" target="_blank">
         <img src="image/mail_new1.png" onmouseover="this.src='image/mail_new2.png'" onmouseout="this.src='image/mail_new1.png'" width="130" height="130" alt="Mail">
       </a>
     </div>
 
+    <!-- Linkボタン -->
     <div class="section-margin">
       <div class="btn-glow2">
         <a href="https://chabinosukede.gozaru.jp/link.html" target="_blank" class="btn-glow btn-hover-shine">&nbsp;&emsp;Link&nbsp;&emsp;&nbsp;</a>
@@ -423,6 +447,7 @@
       <div class="btn-desc">リンクまとめ</div>
     </div>
 
+    <!-- 更新履歴 -->
     <div class="box2">
       <div class="history-title">更新履歴</div>
       <div>
@@ -435,29 +460,30 @@
       </div>
     </div>
 
+    <!-- コピーライト -->
     <div class="copyright">
       © 2020 chabinosuke_<a href="https://chabinosukede.gozaru.jp/" target="_blank">.</a>
     </div>
 
   </div>
 
+  <!-- ==========================================
+     星空自動生成用 JavaScript
+     ========================================== -->
   <script>
-    // 指定した個数・色の星座標を自動生成する関数
     function generateStars(count, colors = ['#ffffff']) {
       let shadows = [];
       for (let i = 0; i < count; i++) {
-        const x = Math.floor(Math.random() * 2000); // 横幅2000pxの範囲
-        const y = Math.floor(Math.random() * 1780); // 縦幅1780pxの範囲
+        const x = Math.floor(Math.random() * 2000);
+        const y = Math.floor(Math.random() * 1780);
         const color = colors[Math.floor(Math.random() * colors.length)];
         shadows.push(`${x}px ${y}px ${color}`);
       }
       return shadows.join(', ');
     }
 
-    // 星の生成ルールを定義するスタイルの作成
-    const starColors = ['#ffffff', '#ffffff', '#fef4f8', '#e0c1ff']; // 白ベース＋淡いピンク紫
+    const starColors = ['#ffffff', '#ffffff', '#fef4f8', '#e0c1ff'];
     
-    // それぞれの層に星の影を適用
     const styleElem = document.createElement('style');
     styleElem.innerHTML = `
       #stars, #stars::after { box-shadow: ${generateStars(400, starColors)}; }
