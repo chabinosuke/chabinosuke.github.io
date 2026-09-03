@@ -283,6 +283,52 @@
       font-weight: 200;
       letter-spacing: 0.08em;
     }
+    
+    
+    /* ==========================================
+       スマホ用レスポンシブ設定 (画面幅600px以下)
+       ========================================== */
+    @media screen and (max-width: 600px) {
+      /* 2列並びのボタンを縦1列に変更 */
+      .grid-2col {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* 縦に並んだ時のボタン同士の間隔 */
+        margin-bottom: 25px;
+      }
+
+      /* ボタン下の説明文との隙間をスマホでもキープ */
+      .btn-desc {
+        margin-top: 2px;
+      }
+
+      /* アイコン画像グループの間隔を調整 */
+      .icon-group {
+        gap: 15px;
+      }
+
+      /* アイコン画像をスマホ用に少し小さく調整 */
+      .icon-group img {
+        width: 100px;
+        height: 100px;
+      }
+
+      /* 透明ボックスの文字サイズと余白を微調整 */
+      .sub-text-1, .sub-text-2 {
+        font-size: 15px;
+        padding: 0 10px;
+      }
+
+      .box2 {
+        padding: 15px 10px;
+        font-size: 14px;
+      }
+
+      .history-title {
+        font-size: 16px;
+      }
+    }
+    
   </style>
 </head>
 
