@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>チャビノスケのWebサイト</title>
-  
-  <!-- 超極細フォント(Weight: 100)の読み込み -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================
@@ -24,8 +19,8 @@
       min-height: 100vh;
       background-color: #070a14;
       color: #fff;
-      font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-      font-weight: 100; /* 極細指定 */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "メイリオ", meiryo, sans-serif;
+      font-weight: 200;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
@@ -68,7 +63,6 @@
       pointer-events: none;
     }
 
-    /* ループ用の擬似要素 (::after) 設定 */
     #stars::after, #stars2::after, #stars3::after, #stars4::after {
       content: '';
       position: absolute;
@@ -76,46 +70,25 @@
       background: transparent;
     }
 
-    /* 1層目：超小粒 */
-    #stars {
-      width: 1px;
-      height: 1px;
-      animation: animStar 180s linear infinite;
-    }
+    #stars { width: 1px; height: 1px; animation: animStar 180s linear infinite; }
     #stars::after { width: 1px; height: 1px; }
 
-    /* 2層目：小粒 */
-    #stars2 {
-      width: 2px;
-      height: 2px;
-      animation: animStar 150s linear infinite;
-    }
+    #stars2 { width: 2px; height: 2px; animation: animStar 150s linear infinite; }
     #stars2::after { width: 2px; height: 2px; }
 
-    /* 3層目：中粒 */
-    #stars3 {
-      width: 2px;
-      height: 2px;
-      animation: animStar 120s linear infinite;
-    }
+    #stars3 { width: 2px; height: 2px; animation: animStar 120s linear infinite; }
     #stars3::after { width: 2px; height: 2px; }
 
-    /* 4層目：大粒 */
-    #stars4 {
-      width: 3px;
-      height: 3px;
-      animation: animStar 90s linear infinite;
-    }
+    #stars4 { width: 3px; height: 3px; animation: animStar 90s linear infinite; }
     #stars4::after { width: 3px; height: 3px; }
 
-    /* 星が上昇するアニメーション */
     @keyframes animStar {
       from { transform: translateY(0px); }
       to { transform: translateY(-1780px); }
     }
 
     /* ==========================================
-       透明ボックス & 更新履歴
+       透明ボックス & 更新履歴 (文字細化指定)
        ========================================== */
     .box {
       width: 100%;
@@ -129,20 +102,20 @@
     }
 
     .sub-text-1 {
-      font-size: 18px;
+      font-size: 17px;
       color: #ffc1ff;
       display: block;
       margin-bottom: 5px;
-      font-weight: 100; /* 極細 */
-      letter-spacing: 0.05em;
+      font-weight: 200;
+      letter-spacing: 0.12em; /* 文字間隔を広げてすっきり見せる */
     }
 
     .sub-text-2 {
-      font-size: 18px;
+      font-size: 17px;
       color: #c1c1ff;
       display: block;
-      font-weight: 100; /* 極細 */
-      letter-spacing: 0.05em;
+      font-weight: 200;
+      letter-spacing: 0.12em;
     }
 
     .box2 {
@@ -154,26 +127,26 @@
       padding: 20px 0;
       box-sizing: border-box;
       line-height: 1.8;
-      font-weight: 100; /* 極細 */
-      letter-spacing: 0.05em;
+      font-weight: 200;
+      letter-spacing: 0.08em;
     }
 
     .history-title {
-      font-size: 18px;
+      font-size: 17px;
       color: #ffffff;
       margin-bottom: 10px;
-      font-weight: 100; /* 極細 */
-      letter-spacing: 0.1em;
+      font-weight: 300;
+      letter-spacing: 0.15em;
     }
 
     .history-date {
       color: #e0c1ff;
-      font-weight: 100; /* 極細 */
+      font-weight: 200;
     }
 
     .history-highlight {
       color: #ffc1e0;
-      font-weight: 100; /* 極細 */
+      font-weight: 200;
     }
 
     /* ==========================================
@@ -197,8 +170,8 @@
       font-size: 14px;
       color: #bf92fc;
       margin-top: 10px;
-      font-weight: 100; /* 極細 */
-      letter-spacing: 0.05em;
+      font-weight: 200;
+      letter-spacing: 0.1em;
     }
 
     .section-margin {
@@ -249,9 +222,9 @@
     }
 
     @keyframes glow {
-      0% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 0px #fff; }
-      50% { box-shadow: 0 0 50px #8b61f8ee; text-shadow: 0 0 30px #fff; }
-      100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
+      0% { box-shadow: 0 0 20px #8b61f844; }
+      50% { box-shadow: 0 0 50px #8b61f8ee; }
+      100% { box-shadow: 0 0 20px #8b61f844; }
     }
 
     .btn-glow {
@@ -260,11 +233,11 @@
       background: linear-gradient(to right, rgba(157,110,255,1) 0%, rgba(232,165,248,1) 100%);
       border: none;
       text-align: center;
-      font-size: 22px;
-      font-weight: 100; /* ボタン内テキストも極細 */
+      font-size: 21px;
+      font-weight: 300; /* ボタンテキストをすっきり補細 */
       line-height: 53px;
       height: 53px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em; /* 文字幅を広げて細く見せる */
       text-decoration: none !important;
       text-transform: uppercase;
       padding: 0 20px;
@@ -274,6 +247,7 @@
       z-index: 1;
       margin: 0;
       box-sizing: border-box;
+      text-shadow: none; /* 文字のにじみ・膨らみを解消 */
     }
 
     .btn-hover-shine {
@@ -304,10 +278,10 @@
 
     .copyright {
       color: #9966ff;
-      font-size: 16px;
+      font-size: 15px;
       margin-top: 30px;
-      font-weight: 100; /* 極細 */
-      letter-spacing: 0.05em;
+      font-weight: 200;
+      letter-spacing: 0.08em;
     }
   </style>
 </head>
