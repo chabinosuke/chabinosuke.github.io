@@ -106,7 +106,7 @@ li {
   }
 
   p, li {
-    font-size: 16px;   /* 文字サイズを14px→16pxに拡大！ */
+    font-size: 18px;   /* 文字サイズを14px→16pxに拡大！ */
     line-height: 1.9;  /* 行間を広げて詰まって見えないように */
   }
 }
