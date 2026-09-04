@@ -20,7 +20,7 @@ body {
   line-height: 1.8;
 }
 
-/* リンク色 */
+/* 通常のリンク色 */
 a {
   color: #c1c1ff;
   text-decoration: underline;
@@ -28,6 +28,26 @@ a {
 
 a:hover {
   color: #ffc1ff;
+}
+
+/* ==========================================
+   英語規約用リンク（オリジナル3色再現）
+   ========================================== */
+.english-link {
+  color: #4a90e2; /* 通常時の色：ブルー */
+  text-decoration: underline;
+  font-size: 1.1em;
+  font-weight: 300;
+  transition: color 0.3s;
+}
+
+.english-link:hover {
+  color: #999999; /* オンマウス時の色：グレー */
+}
+
+.english-link:visited,
+.english-link:active {
+  color: #00a3af; /* 押した後・訪問済みの色：ターコイズブルー */
 }
 
 /* ==========================================
@@ -50,7 +70,6 @@ h1 {
   text-align: center;
   margin-bottom: 25px;
   padding-bottom: 20px;
-  /* オリジナルの間の空いたドット点線 */
   background-image: linear-gradient(to right, #ffffff 20%, transparent 20%);
   background-size: 8px 1px;
   background-repeat: repeat-x;
@@ -67,20 +86,20 @@ hr {
   margin: 28px 0;
 }
 
+/* 通常の見出し */
 h2 {
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 0.1em;
   color: #e0c1ff;
-  margin-top: 100px; /* 上の余白を 35px → 55px に広げてゆったりさせました */
+  margin-top: 55px; /* 上の余白を広めに確保 */
   margin-bottom: 18px;
 }
 
-/* 最初の h2（【はじめに】）の上だけ余白を狭くする設定 */
+/* 最初の h2（【はじめに】）だけ上の余白を狭くする設定 */
 h2:first-of-type {
-  margin-top: 50px; /* ここでお好みの狭さに調整できます */
+  margin-top: 25px!important;
 }
-
 
 /* 段落とリスト：折り返しとフォント調整 */
 p, li {
@@ -131,9 +150,13 @@ li {
     margin-bottom: 20px;
   }
 
-h2 {
+  h2 {
     font-size: 18px;
-    margin-top: 100px; /* スマホ時の上の余白もゆったりめに調整 */
+    margin-top: 45px;
+  }
+
+  h2:first-of-type {
+    margin-top: 20px;
   }
 
   p, li {
