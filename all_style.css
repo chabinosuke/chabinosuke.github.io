@@ -367,10 +367,10 @@ a {
 
 /* ゲーム一覧ボタンの共通サイズ調整 */
 .game-btn {
-  width: 350px;                   /* パソコンなどでは350px */
-  max-width: 100%;                /* スマホなどでは画面幅を超えないように自動縮小！ */
+  width: 350px !important;                   /* パソコンなどでは350px */
+  max-width: 100% !important;                /* スマホなどでは画面幅を超えないように自動縮小！ */
   letter-spacing: 0px !important;
   padding: 0 10px !important;
-  box-sizing: border-box;
-  display: inline-block;
+  box-sizing: border-box !important;
+  display: inline-block !important;
 }
