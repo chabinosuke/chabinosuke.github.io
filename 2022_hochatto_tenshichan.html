@@ -77,14 +77,13 @@
       margin: 0 auto;
       width: 880px;
       border: none;
-      /* 上下の外枠線を削除 */
       border-top: none;
       border-bottom: none;
       border-collapse: separate;
       border-spacing: 0 18px;
       background: #ffffff;
       opacity: 0.85;
-      border-radius: 20px;
+      border-radius: 0 0 20px 20px; /* 上側をくっつけるため下の角だけ丸める */
       box-shadow: 0 0 6px 7px #ffe8eb, 0 0 6px 5px #fae6f2 inset;
     }
 
@@ -172,7 +171,6 @@
       margin: 0 auto;
       width: 880px;
       border: none;
-      /* 上下の外枠線を削除 */
       border-top: none;
       border-bottom: none;
       border-collapse: separate;
@@ -249,6 +247,22 @@
       font-weight: bold;
     }
     .box3-2 p {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 「すぐに無料で遊べます」用の特別ボックス（下が直線のふうにするため） */
+    .box3-2-joint {
+      margin: 0 auto;
+      padding: 1.5em 2em;
+      background-color: #fff;
+      opacity: 0.85;
+      box-shadow: 0 0 6px 7px #ffe8eb, 0 0 6px 10px #fae6f2 inset;
+      border-radius: 30px 30px 0 0; /* 上の角だけ丸める */
+      width: 820px;
+      font-weight: bold;
+    }
+    .box3-2-joint p {
       margin: 0;
       padding: 0;
     }
@@ -359,9 +373,6 @@
 
 <body>
 
-  <script src="//accaii.com/chabi2024/script.js" async></script>
-  <noscript><img src="//accaii.com/chabi2024/script?guid=on"></noscript>
-
   <div style="text-align: center;">
     <img src="/image/tenshi_title2.png" width="1000" height="270" alt="ほちゃっと！ 天使ちゃん">
   </div>
@@ -377,10 +388,11 @@
       </p>
     </div>
 
-    <br><br><br><br>
+    <br><br>
 
     <div style="text-align: center;">
-      <div class="box3-2">
+      <!-- 「すぐに無料で遊べます」ボックス（下がテーブルとくっつくように専用クラスにしています） -->
+      <div class="box3-2-joint">
         <p>
           <b><font size="5" color="#7878fa">すぐに 無料で遊べます</font></b>
         </p>
@@ -388,7 +400,6 @@
 
       <table class="brwsr2">
         <tbody>
-          <!-- 1行目の上の線は削除済み -->
           <tr>
             <!-- 1行目：ノベルゲームコレクション -->
             <th>ノベルゲーム<br>コレクション</th>
@@ -415,7 +426,6 @@
               <a href="https://chabinosuke.booth.pm/items/6243939" target="_blank">BOOTHで遊ぶ</a>
             </td>
           </tr>
-          <!-- 最後の行の下の線は削除済み -->
         </tbody>
       </table>
 
@@ -423,7 +433,6 @@
 
       <table class="brwsr1">
         <tbody>
-          <!-- スペック表1行目の上線も削除済み -->
           <tr>
             <th>ジャンル</th>
             <td class="data fst">
@@ -453,7 +462,6 @@
             <th>特徴</th>
             <td class="data fst">ほんわかした世界にちょっとブラック！セーブをオススメします</td>
           </tr>
-          <!-- スペック表最後の行の下線も削除済み -->
         </tbody>
       </table>
     </div>
