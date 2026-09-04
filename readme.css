@@ -125,9 +125,9 @@ li {
     margin-bottom: 20px;
   }
 
-  h2 {
+h2 {
     font-size: 18px;
-    margin-top: 25px;
+    margin-top: 45px; /* スマホ時の上の余白もゆったりめに調整 */
   }
 
   p, li {
