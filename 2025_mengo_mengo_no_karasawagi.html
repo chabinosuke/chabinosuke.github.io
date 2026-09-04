@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>めんごめんごのから騒ぎ</title>
+  <link rel="shortcut icon" href="image/icon48_3.ico" type="image/icon">
+  <link rel="apple-touch-icon" href="image/icon180_3.png" sizes="180x180">
+
+  <style>
+    body {
+      background: url(image/mengo_bg3.png) left top #000000;
+      background-repeat: repeat-y;
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", "Helvetica Neue", "Helvetica", sans-serif;
+      color: #9932cc;
+    }
+
+    /* 表示領域全体 */
+    div.container.itmFade_3 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      margin: auto;
+    }
+
+    /* 表示領域の「position: relative;」により，領域高さが0になるため，paddingで高さを確保する */
+    div.container.itmFade_3::before {
+      content: "";
+      display: block;
+      text-align: center;
+      padding-top: 0%;
+    }
+
+    /* アニメーションの設定 */
+    div.container.itmFade_3 div.item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: itmFade3-chg-itm-anim 9s infinite; /* アニメーション */
+    }
+    /* 1つ目のアイテム */
+    div.container.itmFade_3 div.item:nth-of-type( 1 ) {
+      animation-delay: 0s;
+    }
+    /* 2つ目のアイテム */
+    div.container.itmFade_3 div.item:nth-of-type( 2 ) {
+      animation-delay: 3s;
+    }
+    /* 3つ目のアイテム */
+    div.container.itmFade_3 div.item:nth-of-type( 3 ) {
+      animation-delay: 6s;
+    }
+
+    /* アニメーションの進行 */
+    @keyframes itmFade3-chg-itm-anim {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+        z-index: 3;
+      }
+      33% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+        z-index: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .box2 {
+      width: 864px;
+      margin: auto;
+      padding: 0.5em 0.5em;
+      color: #00BCD4;
+      background: #111111;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.32);
+    }
+    .box2 p {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* テーブル2 */
+    table.brwsr2 {
+      margin: 0 auto;
+      width: 880px;
+      border: none;
+      border-top: solid 2px #60063D;
+      border-bottom: solid 2px #60063D;
+      border-collapse: separate;
+      border-spacing: 0 18px;
+      background: #111111;
+    }
+
+    table.brwsr2 th {
+      vertical-align: middle;
+      height: 100px;
+      width: 225px;
+      border-right: solid 2px #60063D;
+      margin: 0;
+      text-align: center;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    table.brwsr2 td.data {
+      padding: 0;
+      margin: 0;
+      height: 100px;
+      width: 150px;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      line-height: 15px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    table.brwsr2 td.fst {
+      padding: 10px;
+      vertical-align: middle;
+    }
+
+    table.brwsr2 td.bar {
+      height: 1px;
+      width: 100%;
+      border-top: solid 2px #570063;
+    }
+
+    /* テーブル1 */
+    table.brwsr1 {
+      margin: 0 auto;
+      width: 880px;
+      border: none;
+      border-top: solid 2px #660033;
+      border-bottom: solid 2px #660033;
+      border-collapse: separate;
+      border-spacing: 0 13px;
+      background: #111111;
+    }
+
+    table.brwsr1 th {
+      vertical-align: middle;
+      height: 30px;
+      width: 170px;
+      border-right: solid 2px #660033;
+      margin: 0;
+      text-align: center;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    table.brwsr1 td.data {
+      padding: 0;
+      margin: 0;
+      height: 55px;
+      width: 100px;
+      border: none;
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 16px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    table.brwsr1 td.fst {
+      padding: 10px;
+      vertical-align: middle;
+    }
+
+    table.brwsr1 td.bar {
+      height: 1px;
+      width: 100%;
+      border-top: solid 2px #570063;
+    }
+
+    /* BUTTON GLOW */
+    .btn-glow {
+      color: #fff !important;
+      display: inline-block;
+      background: rgb(138,97,248);
+      background: -moz-linear-gradient(left, rgba(138,97,248,1) 0%, rgba(236,159,231,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(138,97,248,1) 0%, rgba(236,159,231,1) 100%);
+      background: linear-gradient(to right, rgba(138,97,248,1) 0%, rgba(236,159,231,1) 100%);
+      border: none;
+      text-align: center;
+      font-size: 22px;
+      line-height: 53px;
+      letter-spacing: 0.07em;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      padding: 0 30px;
+      transition: 0.3s;
+      -webkit-transition: 0.3s;
+      box-shadow: none;
+      animation: glow 3s infinite;
+      animation-timing-function: ease-out;
+      position: relative;
+      border-radius: 50px;
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 0 10px #3daaa200;
+      transition: .20s;
+      -webkit-transition: .20s;
+      background: -moz-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 0px #fff; }
+      50% { box-shadow: 0 0 100px #8b61f8ee; text-shadow: 0 0 20px #fff; }
+      100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
+    }
+
+    .btn-hover-shine {
+      position: relative;
+    }
+    .btn-hover-shine:after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      height: 100%;
+      right: 80%;
+      width: 1px;
+      background-color: #ffffff00;
+      box-shadow: 0 0 20px #ffd2fe00, 0 0 10px #ffd2fe00, 0 0 5px #ffd2fe00, 0 0 2px #ffd2fe00;
+      opacity: 1;
+    }
+    .btn-hover-shine:hover:after {
+      right: 2%;
+      background-color: #ffffffff;
+      box-shadow: 0 0 30px #ffd2feff, 0 0 15px #ffd2feff, 0 0 7px #ffd2feff, 0 0 3px #ffd2feff;
+      opacity: 0;
+      transition: 0.6s;
+      -webkit-transition: 0.6s;
+    }
+
+    /* BUTTON GLOW 2 */
+    .btn-glow2 {
+      color: #fff !important;
+      display: inline-block;
+      background: rgb(117,68,246);
+      background: -moz-linear-gradient(left, rgba(117,68,246,1) 0%, rgba(203,139,232,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(117,68,246,1) 0%, rgba(203,139,232,1) 100%);
+      background: linear-gradient(to right, rgba(117,68,246,1) 0%, rgba(203,139,232,1) 100%);
+      border: none;
+      text-align: center;
+      font-size: 22px;
+      line-height: 53px;
+      letter-spacing: 0.07em;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      padding: 0 20px;
+      transition: 0.3s;
+      -webkit-transition: 0.3s;
+      box-shadow: none;
+      animation: glow2 3s infinite;
+      animation-timing-function: ease-out;
+      position: relative;
+      border-radius: 50px;
+    }
+    .btn-glow2:hover {
+      box-shadow: 0 0 0 10px #3daaa200;
+      transition: .20s;
+      -webkit-transition: .20s;
+      background: -moz-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+    }
+
+    @keyframes glow2 {
+      0% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 0px #fff; }
+      50% { box-shadow: 0 0 50px #8b61f8ee; text-shadow: 0 0 30px #fff; }
+      100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
+    }
+
+    a {
+      color: #8dfbfc;
+      text-decoration: none;
+      font-weight: 200;
+    }
+    a:hover {
+      color: #f8fab6;
+      font-weight: 400;
+    }
+    a:visited {
+      color: #faa5c0;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="//accaii.com/chabi2024/script.js" async></script>
+  <noscript><img src="//accaii.com/chabi2024/script?guid=on" alt=""></noscript>
+
+  <div style="text-align: center;">
+    <img src="/image/mengo_title3.png" width="800" height="470" alt="めんごめんごのから騒ぎ">
+  </div>
+
+  <div style="text-align: center;">
+    <div class="box2">
+      <p>
+        <font size="5" color="#ed007f">フリーゲーム&nbsp;</font>
+        <font size="5" color="#660033">／&nbsp;</font>
+        <font size="5" color="#E6DE73">判断力必須</font>
+        <font size="5" color="#6BCC37">リピート</font>
+        <font size="5" color="#E6DE73">コメディ</font>
+        <font size="5" color="#6BCC37">ノベル</font>
+      </p>
+    </div>
+
+    <br><br><br><br>
+
+    <div style="text-align: center;">
+      <div class="box2">
+        <p>
+          <b><font size="4" color="#a8a8ff">すぐに 無料で遊べます</font></b>
+        </p>
+      </div>
+
+      <table class="brwsr2">
+        <tbody>
+          <tr>
+            <td class="bar" colspan="6"></td>
+          </tr>
+          <tr>
+            <th><font color="#ffffff">ノベルゲーム<br>コレクション</font></th>
+            <td class="data fst">
+              ダウンロード、ブラウザ
+              &emsp;&emsp;&emsp;&emsp;
+              <br>
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;▸▸▸
+              <br>
+              <font color="#88edff">スマホ、タブレットでも遊べます&emsp;&emsp;&emsp;</font>
+            </td>
+            <td class="data">
+              <a href="https://novelgame.jp/games/show/12270" target="_blank">NovelGame<br><br>Collection</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="bar" colspan="6"></td>
+          </tr>
+          <tr>
+            <th><font color="#ffffff">BOOTH</font></th>
+            <td class="data fst">
+              &emsp;&emsp;&emsp;&emsp;&emsp;ダウンロード
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;▸▸▸
+            </td>
+            <td class="data">
+              <a href="https://chabinosuke.booth.pm/items/7674013" target="_blank">BOOTH</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="bar" colspan="6"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br><br><br><br>
+
+      <table class="brwsr1">
+        <tbody>
+          <tr>
+            <td class="bar" colspan="6"></td>
+          </tr>
+          <tr>
+            <th><font color="#ffffff">ジャンル</font></th>
+            <td class="data fst">選択タップノベル</td>
+          </tr>
+          <tr>
+            <td class="bar" colspan="5"></td>
+          </tr>
+          <tr>
+            <th><font color="#ffffff">プレイ時間</font></th>
+            <td class="data fst">約３０分前後</td>
+          </tr>
+          <tr>
+            <td class="bar" colspan="5"></td>
+          </tr>
+          <tr>
+            <th><font color="#ffffff">エンド数</font></th>
+            <td class="data fst">
+              ４つ&emsp;<font color="#88edff">&#10028;&nbsp;ハッピーエンド、ゲームオーバー、他２種類</font>
+            </td>
+          </tr>
+          <tr>
+            <td class="bar" colspan="5"></td>
+          </tr>
+          <tr>
+            <th><font color="#ffffff">特徴</font></th>
+            <td class="data fst">
+              即やり直し可能*、間違えウェルカム、４つのエンド！
+              <br>
+              <font color="#999999" size="3">*</font>
+              <font color="#999999" size="2">クイックセーブ・クイックロードを使用した場合。</font>
+            </td>
+          </tr>
+          <tr>
+            <td class="bar" colspan="6"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <div class="box2">
+      <p>
+        <b><font size="5" color="#a8a8ff">思っているより&nbsp;かなりしゃべります……たぶん！</font></b>
+      </p>
+    </div>
+
+    <div style="text-align: center;">
+      <iframe width="880" height="500" src="https://www.youtube.com/embed/sOPpuIFXraU?si=TFDDbUbL4e_0dEl3" title="めんごめんごのから騒ぎ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <font size="3" color="#999999">
+      【ボイス】VOICEBOX：青山龍星さん
+    </font>
+
+    <br><br><br><br><br><br><br><br><br>
+
+    <div class="box2">
+      <p>
+        <font size="5" color="#a8a8ff">あらすじ</font>
+      </p>
+    </div>
+
+    <div style="text-align: center;">
+      <img src="./image/mengo_arasuji.png" width="880" height="500" alt="あらすじ">
+    </div>
+
+    <br><br><br><br><br><br><br><br><br>
+
+    <div class="box2">
+      <p>
+        <font size="5" color="#a8a8ff">即セーブ・ロードできるから楽ち～ん☆</font>
+      </p>
+    </div>
+
+    <div class="container itmFade itmFade_3">
+      <div class="item item_1">
+        <img src="./image/mengo01_2.png" width="880" height="500" alt="ゲーム画面1">
+      </div>
+      <div class="item item_2">
+        <img src="./image/mengo02.png" width="880" height="500" alt="ゲーム画面2">
+      </div>
+      <div class="item item_3">
+        <img src="./image/mengo03.png" width="880" height="500" alt="ゲーム画面3">
+      </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="box2">
+      <p>
+        <font size="5" color="#a8a8ff">１分44秒 雰囲気PV</font>
+      </p>
+    </div>
+
+    <iframe width="880" height="500" src="https://www.youtube.com/embed/uL0VznY5Tyo?si=Yq-iJCSjCh701D6q" title="めんごめんごのから騒ぎ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="btn-glow2">
+      <a href="https://chabinosukede.gozaru.jp/index.html" target="_blank" class="btn-glow btn-hover-shine">&emsp;TOPへ戻る&emsp;</a>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <font size="4" color="#9966ff">
+      © 2025 chabinosuke_
+      <br><br>
+    </font>
+  </div>
+</body>
+</html>
