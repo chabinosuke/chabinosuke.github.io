@@ -85,7 +85,7 @@
       padding: 0;
     }
 
-    /* テーブル2（4カラム構成：[配信サイト] [縦線] [取得方法] [矢印] [ボタン]） */
+    /* テーブル2（4カラム構成） */
     table.brwsr2 {
       margin: 0 auto;
       width: 880px;
@@ -109,15 +109,15 @@
       color: #ffffff;
     }
 
-    /* 中央：取得方法などの説明（右側の線はなし） */
+    /* 中央：取得方法などの説明（左側の線との間に余白をとり、文字を大きく） */
     table.brwsr2 td.method {
-      padding: 0 15px;
+      padding: 0 15px 0 25px; /* 左側にしっかり隙間を確保 */
       margin: 0;
       height: 110px;
-      width: 280px;
+      width: 270px;
       border: none;
       color: #88edff;
-      font-size: 19px;
+      font-size: 21px; /* 文字サイズを大きく */
       line-height: 1.5;
       text-align: left;
       vertical-align: middle;
