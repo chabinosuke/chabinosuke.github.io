@@ -38,18 +38,26 @@ a:hover {
   margin: 0 auto;
   padding: 40px 20px;
   box-sizing: border-box;
-  text-align: left; /* 文章を自然な左寄せにして不自然な折返しを防止 */
+  text-align: left;
 }
 
-/* 利用規約（h1）：文字色を白、下の線を白い点線に変更 */
+/* 利用規約（h1）：文字色白、下の点線 */
 h1 {
   font-size: 24px;
   font-weight: 300;
   letter-spacing: 0.12em;
-  color: #ffffff; /* 白に変更 */
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.5); /* 白い点線に変更 */
+  color: #ffffff;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5); /* 点線 */
   padding-bottom: 10px;
   margin-bottom: 30px;
+  text-align: center; /* タイトルは中央寄せ */
+}
+
+/* HTMLの <hr> タグも「利用規約」の下の点線とまったく同じにする設定 */
+hr {
+  border: none;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+  margin: 30px 0;
 }
 
 h2 {
@@ -61,18 +69,19 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* 段落とリスト：改行ルールと余白の調整 */
+/* 段落とリスト：1〜2文字だけ落ちるのを強力に防ぐ設定 */
 p, li {
   font-size: 15px;
   font-weight: 200;
   letter-spacing: 0.05em;
   color: #e0e0e0;
-  word-break: normal; /* 単語途中の不自然な改行を防ぐ */
-  overflow-wrap: anywhere;
+  line-break: strict; /* 句読点などが先頭に来る不自然な改行を厳密に防ぐ */
+  word-break: auto-phrase; /* 文脈に合わせて綺麗な位置で折り返す */
+  overflow-wrap: break-word;
 }
 
 p {
-  margin-bottom: 1.2em; /* 段落同士の間隔を適度にして読みやすく */
+  margin-bottom: 1.2em;
 }
 
 ul, ol {
@@ -110,12 +119,12 @@ li {
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 25px;
   }
 
   p, li {
-    font-size: 19px;
+    font-size: 16px;
     line-height: 1.9;
   }
 }
