@@ -365,10 +365,11 @@ a {
   }
 }
 
-/* ゲーム一覧ボタン専用の共通設定 */
+/* ゲーム一覧ボタンの共通サイズ調整 */
 .game-btn {
-  width: 280px;
-  display: inline-block;
+  width: 320px !important;       /* ちょっと幅を広げる */
+  letter-spacing: 0px !important; /* 字間をキュッと詰める */
+  padding: 0 10px !important;     /* 左右の余白を少しスリムにする */
   box-sizing: border-box;
-  letter-spacing: -1px;
+  display: inline-block;
 }
