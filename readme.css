@@ -41,23 +41,30 @@ a:hover {
   text-align: left;
 }
 
-/* 利用規約（h1）：文字色白、下の点線 */
+/* 利用規約（h1）：文字色白、オリジナル点線 */
 h1 {
   font-size: 24px;
   font-weight: 300;
   letter-spacing: 0.12em;
   color: #ffffff;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.5); /* 点線 */
-  padding-bottom: 10px;
-  margin-bottom: 30px;
-  text-align: center; /* タイトルは中央寄せ */
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  /* オリジナルの間の空いたドット点線 */
+  background-image: linear-gradient(to right, #ffffff 20%, transparent 20%);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  background-position: bottom;
 }
 
-/* HTMLの <hr> タグも「利用規約」の下の点線とまったく同じにする設定 */
+/* 区切り線（<hr>）：オリジナルの間の空いたドット点線 */
 hr {
   border: none;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
-  margin: 30px 0;
+  height: 1px;
+  background-image: linear-gradient(to right, #ffffff 20%, transparent 20%);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  margin: 28px 0;
 }
 
 h2 {
@@ -65,18 +72,18 @@ h2 {
   font-weight: 300;
   letter-spacing: 0.1em;
   color: #e0c1ff;
-  margin-top: 30px;
+  margin-top: 35px;
   margin-bottom: 15px;
 }
 
-/* 段落とリスト：1〜2文字だけ落ちるのを強力に防ぐ設定 */
+/* 段落とリスト：折り返しとフォント調整 */
 p, li {
   font-size: 15px;
   font-weight: 200;
   letter-spacing: 0.05em;
   color: #e0e0e0;
-  line-break: strict; /* 句読点などが先頭に来る不自然な改行を厳密に防ぐ */
-  word-break: auto-phrase; /* 文脈に合わせて綺麗な位置で折り返す */
+  line-break: strict;
+  word-break: auto-phrase;
   overflow-wrap: break-word;
 }
 
@@ -92,7 +99,7 @@ li {
   margin-bottom: 8px;
 }
 
-/* トップに戻るボタンなど */
+/* トップに戻るボタン */
 .back-btn {
   display: inline-block;
   margin-top: 40px;
