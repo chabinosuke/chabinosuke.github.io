@@ -85,7 +85,7 @@
       padding: 0;
     }
 
-    /* テーブル2（3カラム構成：各セルの間に縦線を追加） */
+    /* テーブル2（4カラム構成：[配信サイト] [縦線] [取得方法] [矢印] [ボタン]） */
     table.brwsr2 {
       margin: 0 auto;
       width: 880px;
@@ -101,7 +101,7 @@
     table.brwsr2 th {
       vertical-align: middle;
       height: 110px;
-      width: 200px;
+      width: 190px;
       border-right: solid 2px #4c0080;
       margin: 0;
       text-align: center;
@@ -109,17 +109,30 @@
       color: #ffffff;
     }
 
-    /* 中央：取得方法などの説明（右側に縦線を追加） */
+    /* 中央：取得方法などの説明（右側の線はなし） */
     table.brwsr2 td.method {
       padding: 0 15px;
       margin: 0;
       height: 110px;
-      width: 330px;
-      border-right: solid 2px #4c0080;
+      width: 280px;
+      border: none;
       color: #88edff;
       font-size: 19px;
       line-height: 1.5;
       text-align: left;
+      vertical-align: middle;
+    }
+
+    /* 矢印用セル（中央とボタンの間） */
+    table.brwsr2 td.arrow {
+      padding: 0;
+      margin: 0;
+      height: 110px;
+      width: 60px;
+      border: none;
+      color: #8a61f8;
+      font-size: 24px;
+      text-align: center;
       vertical-align: middle;
     }
 
@@ -319,7 +332,7 @@
 
 <body>
   <div style="text-align: center;">
-    <img src="/image/sonatanosiranu_top4.png" width="750" height="350" alt="そなたの知らぬ世界">
+    <img src="/image/sonatano_sinaru_top4.png" width="750" height="350" alt="そなたの知らぬ世界">
   </div>
 
   <br>
@@ -347,34 +360,36 @@
       <table class="brwsr2">
         <tbody>
           <tr>
-            <td class="bar" colspan="3"></td>
+            <td class="bar" colspan="4"></td>
           </tr>
           <tr>
             <!-- 1行目：ノベルゲームコレクション -->
             <th><font color="#ffffff">ノベルゲーム<br>コレクション</font></th>
             <td class="method">
-              ダウンロード、ブラウザ&nbsp;➤&nbsp;遊んでみる<br>
+              ダウンロード、ブラウザ<br>
               <font size="3.5" color="#88edff">※スマホ・タブレット対応</font>
             </td>
+            <td class="arrow">➤</td>
             <td class="data">
               <a href="https://novelgame.jp/games/show/10744" target="_blank">遊んでみる</a>
             </td>
           </tr>
           <tr>
-            <td class="bar" colspan="3"></td>
+            <td class="bar" colspan="4"></td>
           </tr>
           <tr>
             <!-- 2行目：BOOTH -->
             <th><font color="#ffffff">BOOTH</font></th>
             <td class="method">
-              ダウンロード&nbsp;➤&nbsp;ダウンロード
+              ダウンロード
             </td>
+            <td class="arrow">➤</td>
             <td class="data">
               <a href="https://chabinosuke.booth.pm/items/6251388" target="_blank">ダウンロード</a>
             </td>
           </tr>
           <tr>
-            <td class="bar" colspan="3"></td>
+            <td class="bar" colspan="4"></td>
           </tr>
         </tbody>
       </table>
