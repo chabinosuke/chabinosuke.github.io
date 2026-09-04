@@ -31,30 +31,27 @@ a:hover {
 }
 
 /* ==========================================
-   英語規約用リンク（オリジナル3色再現・順序修正版）
+   英語規約用リンク（文字サイズ拡大＆オリジナル3色）
    ========================================== */
-/* 1. 通常時の色：ブルー */
 a.english-link {
-  color: #4a90e2;
-  text-decoration: underline;
-  font-size: 1.1em;
-  font-weight: 300;
+  color: #4a90e2 !important; /* 通常時：鮮やかなブルー */
+  text-decoration: underline !important;
+  font-size: 1.25em !important; /* 文字サイズを大きく！ */
+  font-weight: 400 !important;
   transition: color 0.3s;
+  display: inline-block;
 }
 
-/* 2. 押した後・訪問済みの色：ターコイズブルー */
 a.english-link:visited {
-  color: #00a3af;
+  color: #00a3af !important; /* 訪問後：ターコイズブルー */
 }
 
-/* 3. オンマウス時の色：グレー（:visitedより下に書くことでホバーが優先されます！） */
 a.english-link:hover {
-  color: #999999;
+  color: #999999 !important; /* オンマウス時：グレー */
 }
 
-/* 4. クリックした瞬間 */
 a.english-link:active {
-  color: #00a3af;
+  color: #00a3af !important;
 }
 
 /* ==========================================
@@ -83,7 +80,7 @@ h1 {
   background-position: bottom;
 }
 
-/* 区切り線（<hr>）：オリジナルの間の空いたドット点線 */
+/* 区切り線（<hr>）：オリジナルのドット点線 */
 hr {
   border: none;
   height: 1px;
@@ -91,6 +88,7 @@ hr {
   background-size: 8px 1px;
   background-repeat: repeat-x;
   margin: 28px 0;
+  clear: both;
 }
 
 /* 通常の見出し */
@@ -99,16 +97,17 @@ h2 {
   font-weight: 300;
   letter-spacing: 0.1em;
   color: #e0c1ff;
-  margin-top: 55px; /* 上の余白を広めに確保 */
+  margin-top: 55px;
   margin-bottom: 18px;
+  clear: both;
 }
 
-/* 最初の h2（【はじめに】）だけ上の余白を狭くする設定 */
-h2:first-of-type {
-  margin-top: 25px!important;
+/* 【はじめに】専用の上余白指定（狭め） */
+h2.first-h2 {
+  margin-top: 20px !important;
 }
 
-/* 段落とリスト：折り返しとフォント調整 */
+/* 段落とリスト */
 p, li {
   font-size: 15px;
   font-weight: 200;
@@ -117,6 +116,7 @@ p, li {
   line-break: strict;
   word-break: auto-phrase;
   overflow-wrap: break-word;
+  text-align: left !important; /* 強制左寄せで右寄りを防止 */
 }
 
 p {
@@ -162,8 +162,8 @@ li {
     margin-top: 45px;
   }
 
-  h2:first-of-type {
-    margin-top: 20px;
+  h2.first-h2 {
+    margin-top: 15px !important;
   }
 
   p, li {
