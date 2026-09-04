@@ -85,7 +85,7 @@
       padding: 0;
     }
 
-    /* テーブル2（3カラム構成に調整：左から [配信サイト] [取得方法] [リンクボタン]） */
+    /* テーブル2（3カラム構成：各セルの間に縦線を追加） */
     table.brwsr2 {
       margin: 0 auto;
       width: 880px;
@@ -109,13 +109,13 @@
       color: #ffffff;
     }
 
-    /* 中央：取得方法などの説明 */
+    /* 中央：取得方法などの説明（右側に縦線を追加） */
     table.brwsr2 td.method {
       padding: 0 15px;
       margin: 0;
       height: 110px;
       width: 330px;
-      border: none;
+      border-right: solid 2px #4c0080;
       color: #88edff;
       font-size: 19px;
       line-height: 1.5;
@@ -305,8 +305,8 @@
       transition: .20s;
       -webkit-transition: .20s;
       background: -moz-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
-      background: -webkit-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
-      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(203,139,232,1) 100%);
+      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(203,139,232,1) 100%);
     }
 
     @keyframes glow2 {
@@ -462,7 +462,8 @@
 
     <div class="box2">
       <p>
-        <font size="5" color="#a8a8ff">ふしぎな現象が起こるという 現場へ移動し 検証する…！！</sペン></p>
+        <font size="5" color="#a8a8ff">ふしぎな現象が起こるという 現場へ移動し 検証する…！！</font>
+      </p>
     </div>
 
     <div style="text-align: center;">
