@@ -90,9 +90,9 @@ a {
   color: #fff;
   margin: 20px 0;
   text-align: center;
-  padding: 15px 0;
+  padding: 10px 0;
   box-sizing: border-box;
-  min-height: 60px;
+  min-height: 40px;
 }
 
 .sub-text-1 {
@@ -118,7 +118,7 @@ a {
   color: #fff;
   margin: 40px 0;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   box-sizing: border-box;
   line-height: 1.8;
   font-weight: 200;
@@ -193,7 +193,7 @@ a {
 .header-banner {
   max-width: 100%;
   height: auto;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 /* ==========================================
