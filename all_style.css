@@ -364,3 +364,11 @@ a {
     font-size: 16px;
   }
 }
+
+/* ゲーム一覧ボタン専用の共通設定 */
+.game-btn {
+  width: 280px;
+  display: inline-block;
+  box-sizing: border-box;
+  letter-spacing: -1px;
+}
