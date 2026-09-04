@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CHABILAND GAME</title>
   
-  
-  <!-- ↓ アイコン表示！ -->
+  <!-- アイコン表示 -->
   <link rel="shortcut icon" href="image/icon48_3.ico" type="image/icon">
   <link rel="apple-touch-icon" href="image/icon180_3.png" sizes="180x180">
 
-  <!-- ここにあった長〜い <style>〜</style> を消して、この1行を入れるだけ！ -->
   <link rel="stylesheet" href="all_style.css">
 </head>
 
@@ -22,46 +20,34 @@
   <div id="stars4"></div>
 
   <div class="wrapper">
-    <!-- ヘッダー画像なし -->
 
     <!-- 端から端までの透明ボックス -->
     <div class="box">
       <span class="sub-text-1">GAME</span>
       <span class="sub-text-2">&#10028;&ensp;ADV・ノベルゲーム&ensp;&#10028;</span>
     </div>
-    <br>
 
     <div style="height: 30px;"></div>
 
-<!-- ここから新しい縦並びボタン群 -->
+    <!-- ここから新しい縦並びボタン群 -->
 
-<!-- ゲーム作品 1 -->
+    <!-- ゲーム作品 1 -->
     <div class="section-margin" style="margin-bottom: 50px;">
-      <!-- ★ボタンの上に表示する横長画像（リンクなし） -->
       <img src="image/game_oshi_holic2.png" alt="推し押しHOLIC" style="width: 100%; max-width: 320px; height: auto; border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
-
-      <!-- ボタン -->
       <div class="btn-glow2">
         <a href="https://novelgame.jp/games/show/00000" target="_blank" class="btn-glow btn-hover-shine"> 推し押しHOLIC </a>
       </div>
       <div class="btn-desc">誠意制作中です</div>
     </div>
 
-
     <!-- ゲーム作品 2 -->
     <div class="section-margin" style="margin-bottom: 50px;">
-      <!-- ★ボタンの上に表示する横長画像（リンクなし） -->
       <img src="image/game_titleue_mengo.png" alt="めんごめんごのから騒ぎ" style="width: 100%; max-width: 320px; height: auto; border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
-
-      <!-- ボタン -->
       <div class="btn-glow2">
-        <a href="https://novelgame.jp/games/show/00000" target="_blank" class="btn-glow btn-hover-shine" >めんごめんごのから騒ぎ </a>
+        <a href="https://novelgame.jp/games/show/00000" target="_blank" class="btn-glow btn-hover-shine">めんごめんごのから騒ぎ </a>
       </div>
       <div class="btn-desc">公開日 / 2025/09/20</div>
     </div>
-    </div>
-
-
 
     <!-- 更新履歴 -->
     <div class="box2">
@@ -76,26 +62,23 @@
       </div>
     </div>
 
-<div style="height: 30px;"></div>
+    <div style="height: 30px;"></div>
 
-    <!-- ★ HOMEに戻るボタン（更新履歴の下 ＋ text-align: centerで中央揃え） -->
+    <!-- HOMEに戻るボタン（更新履歴の下 ＋ 中央揃え） -->
     <div class="section-margin" style="text-align: center;">
       <div class="btn-glow2">
         <a href="index.html" class="btn-glow btn-hover-shine">&ensp;&laquo; HOMEに戻る&ensp;</a>
       </div>
     </div>
-    
-    
+
     <!-- コピーライト -->
     <div class="copyright">
       © 2020 chabinosuke_<a href="https://chabinosukede.gozaru.jp/" target="_blank">.</a>
     </div>
 
-  </div>
+  </div><!-- /.wrapper -->
 
-  <!-- ==========================================
-     星空自動生成用 JavaScript
-     ========================================== -->
+  <!-- 星空自動生成用 JavaScript -->
   <script>
     function generateStars(count, colors = ['#ffffff']) {
       let shadows = [];
