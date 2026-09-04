@@ -38,14 +38,16 @@ a:hover {
   margin: 0 auto;
   padding: 40px 20px;
   box-sizing: border-box;
+  text-align: left; /* 文章を自然な左寄せにして不自然な折返しを防止 */
 }
 
+/* 利用規約（h1）：文字色を白、下の線を白い点線に変更 */
 h1 {
   font-size: 24px;
   font-weight: 300;
   letter-spacing: 0.12em;
-  color: #ffc1ff;
-  border-bottom: 1px solid rgba(255, 193, 255, 0.3);
+  color: #ffffff; /* 白に変更 */
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5); /* 白い点線に変更 */
   padding-bottom: 10px;
   margin-bottom: 30px;
 }
@@ -59,11 +61,18 @@ h2 {
   margin-bottom: 15px;
 }
 
+/* 段落とリスト：改行ルールと余白の調整 */
 p, li {
   font-size: 15px;
   font-weight: 200;
   letter-spacing: 0.05em;
   color: #e0e0e0;
+  word-break: normal; /* 単語途中の不自然な改行を防ぐ */
+  overflow-wrap: anywhere;
+}
+
+p {
+  margin-bottom: 1.2em; /* 段落同士の間隔を適度にして読みやすく */
 }
 
 ul, ol {
@@ -92,21 +101,21 @@ li {
    ========================================== */
 @media screen and (max-width: 600px) {
   .container {
-    padding: 20px 18px; /* 端の余白をほんの少し広く */
+    padding: 20px 18px;
   }
 
   h1 {
-    font-size: 22px;   /* タイトルを少し大きく */
+    font-size: 22px;
     margin-bottom: 20px;
   }
 
   h2 {
-    font-size: 18px;   /* 小見出しもくっきり */
+    font-size: 20px;
     margin-top: 25px;
   }
 
   p, li {
-    font-size: 18px;   /* 文字サイズを14px→16pxに拡大！ */
-    line-height: 1.9;  /* 行間を広げて詰まって見えないように */
+    font-size: 19px;
+    line-height: 1.9;
   }
 }
