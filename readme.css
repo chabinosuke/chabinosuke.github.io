@@ -31,23 +31,30 @@ a:hover {
 }
 
 /* ==========================================
-   英語規約用リンク（オリジナル3色再現）
+   英語規約用リンク（オリジナル3色再現・順序修正版）
    ========================================== */
-.english-link {
-  color: #4a90e2; /* 通常時の色：ブルー */
+/* 1. 通常時の色：ブルー */
+a.english-link {
+  color: #4a90e2;
   text-decoration: underline;
   font-size: 1.1em;
   font-weight: 300;
   transition: color 0.3s;
 }
 
-.english-link:hover {
-  color: #999999; /* オンマウス時の色：グレー */
+/* 2. 押した後・訪問済みの色：ターコイズブルー */
+a.english-link:visited {
+  color: #00a3af;
 }
 
-.english-link:visited,
-.english-link:active {
-  color: #00a3af; /* 押した後・訪問済みの色：ターコイズブルー */
+/* 3. オンマウス時の色：グレー（:visitedより下に書くことでホバーが優先されます！） */
+a.english-link:hover {
+  color: #999999;
+}
+
+/* 4. クリックした瞬間 */
+a.english-link:active {
+  color: #00a3af;
 }
 
 /* ==========================================
