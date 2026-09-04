@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>冥堂奇縁譚</title>
+  <link rel="shortcut icon" href="image/icon48_3.ico" type="image/icon">
+  <link rel="apple-touch-icon" href="image/icon180_3.png" sizes="180x180">
+
+  <style>
+    body {
+      background: url(image/meido_bg2.png) left top #2c154f;
+      background-repeat: repeat-y;
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", "Helvetica Neue", "Helvetica", sans-serif;
+      color: #9932cc;
+    }
+
+    /* 表示領域全体 */
+    div.container.itmFade_3 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      margin: auto;
+    }
+
+    /* 表示領域の「position: relative;」により，領域高さが0になるため，paddingで高さを確保する */
+    div.container.itmFade_3::before {
+      content: "";
+      display: block;
+      text-align: center;
+      padding-top: 0%;
+    }
+
+    /* アニメーションの設定 */
+    div.container.itmFade_3 div.item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: itmFade3-chg-itm-anim 9s infinite;
+    }
+    div.container.itmFade_3 div.item:nth-of-type( 1 ) {
+      animation-delay: 0s;
+    }
+    div.container.itmFade_3 div.item:nth-of-type( 2 ) {
+      animation-delay: 3s;
+    }
+    div.container.itmFade_3 div.item:nth-of-type( 3 ) {
+      animation-delay: 6s;
+    }
+
+    /* アニメーションの進行 */
+    @keyframes itmFade3-chg-itm-anim {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+        z-index: 3;
+      }
+      33% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+        z-index: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    table.brwsr2 {
+      color: #076ce0;
+      font-weight: bold;
+      margin: 0 auto;
+      width: 880px;
+      border: none;
+      border-collapse: separate;
+      border-spacing: 18px;
+      background: #fff;
+      opacity: 0.7;
+      border-radius: 30px;
+      box-shadow: 0 0 6px 7px #ffe8eb, 0 0 6px 5px #fae6f2 inset;
+    }
+
+    table.brwsr2 th {
+      vertical-align: middle;
+      height: 100px;
+      width: 200px;
+      border-right: solid 5px #fce1f3;
+      margin: 0;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    table.brwsr2 td.data {
+      padding: 0;
+      margin: 0;
+      height: 100px;
+      width: 220px;
+      border: none;
+      color: #076ce0;
+      font-size: 20px;
+      line-height: 15px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    table.brwsr2 td.bar {
+      height: 1px;
+      width: 100%;
+      color: #aaa;
+      border-top: solid 5px #fce1f3;
+    }
+
+    table.brwsr1 {
+      color: #076ce0;
+      font-weight: bold;
+      margin: 0 auto;
+      width: 880px;
+      border: none;
+      border-collapse: separate;
+      border-spacing: 0 13px;
+      background: #fff;
+      opacity: 0.7;
+      border-radius: 30px;
+      box-shadow: 0 0 6px 7px #ffe8eb, 0 0 6px 5px #fae6f2 inset;
+    }
+
+    table.brwsr1 th {
+      vertical-align: middle;
+      height: 30px;
+      width: 170px;
+      border-right: solid 5px #fce1f3;
+      margin: 0;
+      text-align: center;
+      font-size: 21px;
+    }
+
+    table.brwsr1 td.data {
+      padding: 0;
+      margin: 0;
+      height: 55px;
+      width: 100px;
+      border: none;
+      color: #076ce0;
+      font-size: 19px;
+      line-height: 16px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    table.brwsr1 td.bar {
+      height: 1px;
+      width: 100%;
+      color: #666;
+      border-top: solid 5px #fce1f3;
+    }
+
+    /* BUTTON GLOW */
+    .btn-glow {
+      color: #fff !important;
+      display: inline-block;
+      background: rgb(138,97,248);
+      background: -moz-linear-gradient(left, rgba(138,97,248,1) 0%, rgba(236,159,231,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(138,97,248,1) 0%, rgba(236,159,231,1) 100%);
+      background: linear-gradient(to right, rgba(138,97,248,1) 0%, rgba(236,159,231,1) 100%);
+      border: none;
+      text-align: center;
+      font-size: 22px;
+      line-height: 53px;
+      letter-spacing: 0.07em;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      padding: 0 30px;
+      transition: 0.3s;
+      -webkit-transition: 0.3s;
+      box-shadow: none;
+      animation: glow 3s infinite;
+      animation-timing-function: ease-out;
+      position: relative;
+      border-radius: 50px;
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 0 10px #3daaa200;
+      transition: .20s;
+      -webkit-transition: .20s;
+      background: -moz-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 0px #fff; }
+      50% { box-shadow: 0 0 100px #8b61f8ee; text-shadow: 0 0 20px #fff; }
+      100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
+    }
+
+    .btn-hover-shine {
+      position: relative;
+    }
+    .btn-hover-shine:after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      height: 100%;
+      right: 80%;
+      width: 1px;
+      background-color: #ffffff00;
+      box-shadow: 0 0 20px #ffd2fe00, 0 0 10px #ffd2fe00, 0 0 5px #ffd2fe00, 0 0 2px #ffd2fe00;
+      opacity: 1;
+    }
+    .btn-hover-shine:hover:after {
+      right: 2%;
+      background-color: #ffffffff;
+      box-shadow: 0 0 30px #ffd2feff, 0 0 15px #ffd2feff, 0 0 7px #ffd2feff, 0 0 3px #ffd2feff;
+      opacity: 0;
+      transition: 0.6s;
+      -webkit-transition: 0.6s;
+    }
+
+    /* BUTTON GLOW 2 */
+    .btn-glow2 {
+      color: #fff !important;
+      display: inline-block;
+      background: rgb(117,68,246);
+      background: -moz-linear-gradient(left, rgba(117,68,246,1) 0%, rgba(203,139,232,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(117,68,246,1) 0%, rgba(203,139,232,1) 100%);
+      background: linear-gradient(to right, rgba(117,68,246,1) 0%, rgba(203,139,232,1) 100%);
+      border: none;
+      text-align: center;
+      font-size: 22px;
+      line-height: 53px;
+      letter-spacing: 0.07em;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      padding: 0 20px;
+      transition: 0.3s;
+      -webkit-transition: 0.3s;
+      box-shadow: none;
+      animation: glow2 3s infinite;
+      animation-timing-function: ease-out;
+      position: relative;
+      border-radius: 50px;
+    }
+    .btn-glow2:hover {
+      box-shadow: 0 0 0 10px #3daaa200;
+      transition: .20s;
+      -webkit-transition: .20s;
+      background: -moz-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+    }
+
+    @keyframes glow2 {
+      0% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 0px #fff; }
+      50% { box-shadow: 0 0 50px #8b61f8ee; text-shadow: 0 0 30px #fff; }
+      100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
+    }
+
+    /* CSSコード */
+    span {
+      text-decoration: underline;
+    }
+
+    a {
+      color: #61ffe5;
+      text-decoration: none;
+      font-weight: 350;
+    }
+    a:hover {
+      color: #f0ff8f;
+      font-weight: 500;
+    }
+    a:visited {
+      color: #faa5c0;
+    }
+
+    /* めくれた紙風 */
+    .box1-6 {
+      margin: 0 auto;
+      padding: 2em;
+      background-color: #3d0239;
+      position: relative;
+      width: 715px;
+      font-weight: 500;
+    }
+
+    .box1-6::after {
+      position: absolute;
+      content: '';
+      right: 0px;
+      top: 0px;
+      border-width: 0 35px 35px 0;
+      border-style: solid;
+      border-color: #2c154f #3d0239 #e3aadf;
+      box-shadow: -1px 1px 1px rgb(0 0 0 / .50);
+    }
+
+    .box1-6 p {
+      margin: 0;
+    }
+
+    /* セロテープ風 */
+    .box5-6 {
+      position: relative;
+      margin: 0 auto 7em;
+      background-color: #40017a;
+      width: 650px;
+    }
+
+    .box5-6 .box-title {
+      background-color: rgb(171 227 255 / .4);
+      border-left: 3px dotted rgb(0 0 0 / .1);
+      border-right: 3px dotted rgb(0 0 0 / .1);
+      box-shadow: 0 0 5px rgb(0 0 0 / .12);
+      transform: rotate(-3deg);
+      color: #e8c4ff;
+      padding: 30px 30px;
+      line-height: 0.8;
+      position: absolute;
+      top: -1em;
+      left: -2em;
+      font-size: 1.4em;
+      width: auto;
+      max-width: calc(100% - 2em);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .box5-6 .box-content {
+      padding: 2.0em 1.5em 1.5em;
+      font-size: 1.5em;
+      font-weight: 400;
+    }
+
+    .box5-6 p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HTMLコード -->
+  <div style="text-align: center;">
+
+    <font size="4" color="#af14fc">
+      &#10051;&nbsp;このゲームは&nbsp; 現在制作休止中です&nbsp;&#10051;
+    </font>
+    <br>
+
+    <img src="/image/meido_title_provisional4.png" width="770" height="430" alt="冥堂奇縁譚 タイトル">
+    <br>
+
+    <div class="box1-6">
+      <p>
+        <font size="4" color="#cbb5ff">meidou&nbsp;kientan</font>
+        <font size="4" color="#af14fc">&emsp;&#10051;&emsp;</font>
+        <font size="5" color="#eabaff">アイロニカル</font>
+        <font size="5" color="#ffbaeb">コメディ</font>
+        <font size="5" color="#eabaff">ミステリー</font>
+      </p>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br>
+
+    <div style="text-align: center;">
+      <div class="box5-6">
+        <div class="box-title">進捗報告 ci-en</div>
+        <div class="box-content">
+          <p>&#9654;&emsp;<a href="https://ci-en.net/creator/27222/article/1416514" target="_blank">Xより詳細な進捗はコチラ</a></p>
+        </div>
+      </div>
+
+      <br><br><br><br>
+
+      <div class="box1-6">
+        <p>
+          <font size="5" color="#d0c0fc">１分ちょっとで雰囲気がわかる進捗動画</font>
+        </p>
+      </div>
+
+      <iframe width="780" height="490" src="https://www.youtube.com/embed/ddkQiizlzv4?si=XZwy_mWHqCDqGjF2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+      <br><br><br><br><br><br>
+      <br><br><br><br><br><br>
+
+      <div class="btn-glow2">
+        <a href="https://chabinosukede.gozaru.jp/index.html" target="_blank" class="btn-glow btn-hover-shine">&emsp;TOPへ戻る&emsp;</a>
+      </div>
+
+      <br><br><br><br><br>
+      <br><br><br><br><br>
+
+      <font size="4" color="#9966ff">
+        © 2020 chabinosuke_
+        <br><br>
+      </font>
+    </div>
+
+  </div>
+
+</body>
+</html>
