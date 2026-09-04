@@ -10,6 +10,17 @@
   <link rel="apple-touch-icon" href="image/icon180_3.png" sizes="180x180">
 
   <link rel="stylesheet" href="all_style.css">
+  
+  <!-- ★ここから追加：ゲームボタン用の共通設定 -->
+  <style>
+    .game-btn {
+      width: 300px;                  /* ボタンの横幅 */
+      display: inline-block;
+      box-sizing: border-box;
+      letter-spacing: -1px;          /* 字間を少し詰める */
+    }
+  </style>
+  
 </head>
 
 <body>
@@ -32,21 +43,21 @@
     <!-- ここから新しい縦並びボタン群 -->
 
     <!-- ゲーム作品 1 -->
-    <div class="section-margin" style="margin-bottom: 80px;">
+    <div class="section-margin" style="margin-bottom: 50px;">
       <img src="image/game_oshi_holic2.png" alt="推し押しHOLIC" style="width: 100%; max-width: 320px; height: auto; border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
       <div class="btn-glow2">
-        <!-- ★ style="width: 3000px; display: inline-block; box-sizing: border-box;" を追加 -->
-        <a href="https://novelgame.jp/games/show/00000" target="_blank" class="btn-glow btn-hover-shine" style="width: 240px; display: inline-block; box-sizing: border-box;">推し押しHOLIC</a>
+        <!-- ★ class に game-btn を追加（styleは消してOKです） -->
+        <a href="https://novelgame.jp/games/show/00000" target="_blank" class="btn-glow btn-hover-shine game-btn">推し押しHOLIC</a>
       </div>
       <div class="btn-desc">誠意制作中です</div>
     </div>
 
     <!-- ゲーム作品 2 -->
-    <div class="section-margin" style="margin-bottom: 80px;">
+    <div class="section-margin" style="margin-bottom: 50px;">
       <img src="image/game_titleue_mengo.png" alt="めんごめんごのから騒ぎ" style="width: 100%; max-width: 320px; height: auto; border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
       <div class="btn-glow2">
-        <!-- ★ 同じ style を追加 -->
-        <a href="https://novelgame.jp/games/show/00000" target="_blank" class="btn-glow btn-hover-shine" style="width: 240px; display: inline-block; box-sizing: border-box;">めんごめんごのから騒ぎ</a>
+        <!-- ★ こちらも class に game-btn を追加 -->
+        <a href="https://novelgame.jp/games/show/00000" target="_blank" class="btn-glow btn-hover-shine game-btn">めんごめんごのから騒ぎ</a>
       </div>
       <div class="btn-desc">公開日 / 2025/09/20</div>
     </div>
