@@ -85,7 +85,7 @@
       padding: 0;
     }
 
-    /* テーブル2（大きめサイズに調整） */
+    /* テーブル2（3カラム構成に調整：左から [配信サイト] [取得方法] [リンクボタン]） */
     table.brwsr2 {
       margin: 0 auto;
       width: 880px;
@@ -97,10 +97,11 @@
       background: #180f3e;
     }
 
+    /* 左側：配信サイト名 */
     table.brwsr2 th {
       vertical-align: middle;
       height: 110px;
-      width: 225px;
+      width: 200px;
       border-right: solid 2px #4c0080;
       margin: 0;
       text-align: center;
@@ -108,25 +109,29 @@
       color: #ffffff;
     }
 
+    /* 中央：取得方法などの説明 */
+    table.brwsr2 td.method {
+      padding: 0 15px;
+      margin: 0;
+      height: 110px;
+      width: 330px;
+      border: none;
+      color: #88edff;
+      font-size: 19px;
+      line-height: 1.5;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    /* 右側：ボタン配置用セル */
     table.brwsr2 td.data {
       padding: 0;
       margin: 0;
       height: 110px;
-      width: 150px;
+      width: 250px;
       border: none;
-      color: #fff;
-      font-size: 22px;
-      line-height: 1.4;
       text-align: center;
       vertical-align: middle;
-      white-space: normal; /* 折り返しを有効にして見やすく */
-      overflow: hidden;
-    }
-
-    table.brwsr2 td.fst {
-      padding: 10px;
-      vertical-align: middle;
-      text-align: left; /* 左寄せですっきり */
     }
 
     table.brwsr2 td.bar {
@@ -138,18 +143,19 @@
     /* テーブル内のリンクボタン風デザイン */
     table.brwsr2 td.data a {
       display: inline-block;
-      padding: 8px 16px;
-      background: linear-gradient(to right, rgba(138,97,248,0.3), rgba(236,159,231,0.3));
+      padding: 10px 20px;
+      background: linear-gradient(to right, rgba(138,97,248,0.4), rgba(236,159,231,0.4));
       border: 1px solid #8a61f8;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 20px;
       font-weight: 600;
       color: #8dfbfc;
       text-decoration: none;
       transition: 0.3s;
+      white-space: nowrap;
     }
     table.brwsr2 td.data a:hover {
-      background: linear-gradient(to right, rgba(138,97,248,0.8), rgba(236,159,231,0.8));
+      background: linear-gradient(to right, rgba(138,97,248,0.9), rgba(236,159,231,0.9));
       color: #f8fab6;
       box-shadow: 0 0 15px #8b61f8;
     }
@@ -157,7 +163,7 @@
       color: #faa5c0;
     }
 
-    /* テーブル1（大きめサイズに調整） */
+    /* テーブル1（スペック表） */
     table.brwsr1 {
       margin: 0 auto;
       width: 880px;
@@ -299,28 +305,14 @@
       transition: .20s;
       -webkit-transition: .20s;
       background: -moz-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
-      background: -webkit-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(203,139,232,1) 100%);
-      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(203,139,232,1) 100%);
+      background: -webkit-linear-gradient(left, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
+      background: linear-gradient(to right, rgba(203,139,232,1) 0%, rgba(117,68,246,1) 100%);
     }
 
     @keyframes glow2 {
       0% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 0px #fff; }
       50% { box-shadow: 0 0 50px #8b61f8ee; text-shadow: 0 0 30px #fff; }
       100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
-    }
-
-    /* 通常のテキストリンク用（必要に応じて） */
-    a.text-link {
-      color: #8dfbfc;
-      text-decoration: none;
-      font-weight: 200;
-    }
-    a.text-link:hover {
-      color: #f8fab6;
-      font-weight: 400;
-    }
-    a.text-link:visited {
-      color: #faa5c0;
     }
   </style>
 </head>
@@ -355,38 +347,34 @@
       <table class="brwsr2">
         <tbody>
           <tr>
-            <td class="bar" colspan="6"></td>
+            <td class="bar" colspan="3"></td>
           </tr>
           <tr>
+            <!-- 1行目：ノベルゲームコレクション -->
             <th><font color="#ffffff">ノベルゲーム<br>コレクション</font></th>
-            <td class="data fst">
-              ダウンロード、ブラウザ
-              &emsp;&emsp;&emsp;&emsp;
-              <br>
-              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;▸▸▸
-              <br>
-              <font color="#88edff">スマホ、タブレットでも遊べます&emsp;&emsp;&emsp;</font>
+            <td class="method">
+              ダウンロード、ブラウザ<br>
+              <font size="3.5" color="#88edff">※スマホ・タブレット対応</font>
             </td>
             <td class="data">
-              <a href="https://novelgame.jp/games/show/10744" target="_blank">NovelGame<br>Collection</a>
+              <a href="https://novelgame.jp/games/show/10744" target="_blank">遊んでみる</a>
             </td>
           </tr>
           <tr>
-            <td class="bar" colspan="6"></td>
+            <td class="bar" colspan="3"></td>
           </tr>
           <tr>
+            <!-- 2行目：BOOTH -->
             <th><font color="#ffffff">BOOTH</font></th>
-            <td class="data fst">
-              &emsp;&emsp;&emsp;&emsp;&emsp;ダウンロード
-              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;▸▸▸
+            <td class="method">
+              ダウンロード
             </td>
             <td class="data">
-              <a href="https://chabinosuke.booth.pm/items/6251388" target="_blank">BOOTH</a>
+              <a href="https://chabinosuke.booth.pm/items/6251388" target="_blank">ダウンロード</a>
             </td>
           </tr>
           <tr>
-            <td class="bar" colspan="6"></td>
+            <td class="bar" colspan="3"></td>
           </tr>
         </tbody>
       </table>
@@ -401,7 +389,7 @@
           <tr>
             <th><font color="#ffffff">ジャンル</font></th>
             <td class="data fst">
-              ノベル&emsp;<font color="#88edff">&#10028;&nbsp;『&nbsp;将軍捕物帳&nbsp;』の&nbsp;番外編</font>
+              ノベル&emsp;<font size="3.5" color="#88edff">&#10028;&nbsp;『&nbsp;将軍捕物帳&nbsp;』の&nbsp;番外編</font>
             </td>
           </tr>
           <tr>
@@ -424,7 +412,7 @@
           <tr>
             <th><font color="#ffffff">特徴</font></th>
             <td class="data fst">
-              読むだけ&emsp;<font color="#88edff">&#10028;&nbsp;『&nbsp;将軍捕物帳&nbsp;』での&nbsp;謎が１つ解決する</font>
+              読むだけ&emsp;<font size="3.5" color="#88edff">&#10028;&nbsp;『&nbsp;将軍捕物帳&nbsp;』での&nbsp;謎が１つ解決する</font>
             </td>
           </tr>
           <tr>
@@ -474,8 +462,7 @@
 
     <div class="box2">
       <p>
-        <font size="5" color="#a8a8ff">ふしぎな現象が起こるという 現場へ移動し 検証する…！！</font>
-      </p>
+        <font size="5" color="#a8a8ff">ふしぎな現象が起こるという 現場へ移動し 検証する…！！</sペン></p>
     </div>
 
     <div style="text-align: center;">
