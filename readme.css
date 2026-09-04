@@ -92,18 +92,21 @@ li {
    ========================================== */
 @media screen and (max-width: 600px) {
   .container {
-    padding: 20px 15px;
+    padding: 20px 18px; /* 端の余白をほんの少し広く */
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 22px;   /* タイトルを少し大きく */
+    margin-bottom: 20px;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 18px;   /* 小見出しもくっきり */
+    margin-top: 25px;
   }
 
   p, li {
-    font-size: 14px;
+    font-size: 16px;   /* 文字サイズを14px→16pxに拡大！ */
+    line-height: 1.9;  /* 行間を広げて詰まって見えないように */
   }
 }
