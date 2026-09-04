@@ -72,7 +72,7 @@ h2 {
   font-weight: 300;
   letter-spacing: 0.1em;
   color: #e0c1ff;
-  margin-top: 85px; /* 上の余白を 35px → 55px に広げてゆったりさせました */
+  margin-top: 100px; /* 上の余白を 35px → 55px に広げてゆったりさせました */
   margin-bottom: 18px;
 }
 
@@ -127,7 +127,7 @@ li {
 
 h2 {
     font-size: 18px;
-    margin-top: 45px; /* スマホ時の上の余白もゆったりめに調整 */
+    margin-top: 100px; /* スマホ時の上の余白もゆったりめに調整 */
   }
 
   p, li {
