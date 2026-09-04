@@ -76,6 +76,12 @@ h2 {
   margin-bottom: 18px;
 }
 
+/* 最初の h2（【はじめに】）の上だけ余白を狭くする設定 */
+h2:first-of-type {
+  margin-top: 50px; /* ここでお好みの狭さに調整できます */
+}
+
+
 /* 段落とリスト：折り返しとフォント調整 */
 p, li {
   font-size: 15px;
