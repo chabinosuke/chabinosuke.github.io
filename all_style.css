@@ -49,36 +49,93 @@ a {
    4重の星空構造 (JSで星を自動生成)
    ========================================== */
 #stars, #stars2, #stars3, #stars4 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: transparent;
-  z-index: 1;
-  pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
 }
 
 #stars::after, #stars2::after, #stars3::after, #stars4::after {
-  content: '';
-  position: absolute;
-  top: 1780px;
-  background: transparent;
+    content: '';
+    position: absolute;
+    top: 1780px;
+    background: transparent;
 }
 
-#stars { width: 1px; height: 1px; animation: animStar 180s linear infinite; }
-#stars::after { width: 1px; height: 1px; }
+/* 1つ目の星（たくさんのドットを追加！） */
+#stars { 
+    width: 1px; 
+    height: 1px; 
+    box-shadow: 
+        150px 100px #fff, 300px 450px #fff, 700px 200px #fff, 
+        950px 600px #fff, 200px 900px #fff, 1100px 300px #fff,
+        450px 750px #fff, 800px 1200px #fff, 100px 1400px #fff,
+        600px 1000px #fff, 1250px 800px #fff, 350px 1600px #fff;
+    animation: animStar 180s linear infinite; 
+}
+#stars::after { 
+    width: 1px; 
+    height: 1px; 
+    box-shadow: 
+        150px 100px #fff, 300px 450px #fff, 700px 200px #fff, 
+        950px 600px #fff, 200px 900px #fff, 1100px 300px #fff;
+}
 
-#stars2 { width: 2px; height: 2px; animation: animStar 150s linear infinite; }
-#stars2::after { width: 2px; height: 2px; }
+/* 2つ目の星 */
+#stars2 { 
+    width: 2px; 
+    height: 2px; 
+    box-shadow: 
+        250px 300px #fff, 850px 150px #fff, 400px 800px #fff, 
+        1000px 1000px #fff, 150px 1200px #fff, 750px 500px #fff,
+        1200px 1400px #fff, 500px 400px #fff;
+    animation: animStar 150s linear infinite; 
+}
+#stars2::after { 
+    width: 2px; 
+    height: 2px; 
+    box-shadow: 
+        250px 300px #fff, 850px 150px #fff, 400px 800px #fff, 
+        1000px 1000px #fff;
+}
 
-#stars3 { width: 2px; height: 2px; animation: animStar 120s linear infinite; }
-#stars3::after { width: 2px; height: 2px; }
+/* 3つ目の星 */
+#stars3 { 
+    width: 2px; 
+    height: 2px; 
+    box-shadow: 
+        100px 600px #fff, 650px 300px #fff, 900px 900px #fff, 
+        300px 1300px #fff, 1150px 400px #fff, 500px 1100px #fff;
+    animation: animStar 120s linear infinite; 
+}
+#stars3::after { 
+    width: 2px; 
+    height: 2px; 
+    box-shadow: 
+        100px 600px #fff, 650px 300px #fff, 900px 900px #fff;
+}
 
-#stars4 { width: 3px; height: 3px; animation: animStar 90s linear infinite; }
-#stars4::after { width: 3px; height: 3px; }
+/* 4つ目の星 */
+#stars4 { 
+    width: 3px; 
+    height: 3px; 
+    box-shadow: 
+        400px 200px #fff, 800px 700px #fff, 200px 1100px #fff, 
+        1000px 1300px #fff, 600px 1500px #fff;
+    animation: animStar 90s linear infinite; 
+}
+#stars4::after { 
+    width: 3px; 
+    height: 3px; 
+    box-shadow: 
+        400px 200px #fff, 800px 700px #fff;
+}
 
 @keyframes animStar {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-1780px); }
+    from { transform: translateY(0px); }
+    to { transform: translateY(-1780px); }
 }
 
 /* ==========================================
