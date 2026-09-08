@@ -166,5 +166,30 @@
     </div>
 </div>
 
+
+<script>
+    // 星を自動生成してCSSのbox-shadowにセットする処理
+    const starLayers = [
+        { id: 'stars', count: 60 },
+        { id: 'stars2', count: 40 },
+        { id: 'stars3', count: 30 },
+        { id: 'stars4', count: 20 }
+    ];
+
+    starLayers.forEach(layer => {
+        const elem = document.getElementById(layer.id);
+        if (!elem) return;
+        
+        let shadows = [];
+        for (let i = 0; i < layer.count; i++) {
+            let x = Math.floor(Math.random() * 2000);
+            let y = Math.floor(Math.random() * 1780);
+            shadows.push(`${x}px ${y}px #fff`);
+        }
+        elem.style.boxShadow = shadows.join(', ');
+    });
+</script>
+
+
 </body>
 </html>
