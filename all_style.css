@@ -432,6 +432,6 @@ a {
 
 /* 改行した部分の行間を詰めるクラス */
 .btn-tight-line {
-    line-height: 1.3 !important; /* 数字を小さくすると行間が狭くなります */
+    line-height: 1.8 !important; /* 数字を小さくすると行間が狭くなります */
 }
 
