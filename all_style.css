@@ -435,7 +435,6 @@ a {
     line-height: 1.8 !important; /* 数字を小さくすると行間が狭くなります */
 }
 
-
 /* 2行以上に改行するボタン専用の調整クラス */
 .btn-multiline {
     line-height: 1.7 !important;      /* 文字の行間を狭くする */
