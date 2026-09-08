@@ -168,28 +168,40 @@
 
 
 <script>
-    // 星を自動生成してCSSのbox-shadowにセットする処理
+    // 星を自動生成してCSSのbox-shadowにセットする処理（大増量版）
     const starLayers = [
-        { id: 'stars', count: 60 },
-        { id: 'stars2', count: 40 },
-        { id: 'stars3', count: 30 },
-        { id: 'stars4', count: 20 }
+        { id: 'stars', count: 400 },
+        { id: 'stars2', count: 250 },
+        { id: 'stars3', count: 150 },
+        { id: 'stars4', count: 80 }
     ];
 
     starLayers.forEach(layer => {
         const elem = document.getElementById(layer.id);
         if (!elem) return;
         
-        let shadows = [];
+        // メイン用と、::after（ループ用）のシャドウを生成
+        let shadowsMain = [];
+        let shadowsAfter = [];
+
         for (let i = 0; i < layer.count; i++) {
-            let x = Math.floor(Math.random() * 2000);
+            let x = Math.floor(Math.random() * 2500);
             let y = Math.floor(Math.random() * 1780);
-            shadows.push(`${x}px ${y}px #fff`);
+            shadowsMain.push(`${x}px ${y}px #fff`);
+            
+            // ::after用も同じ数だけ生成
+            let x2 = Math.floor(Math.random() * 2500);
+            let y2 = Math.floor(Math.random() * 1780);
+            shadowsAfter.push(`${x2}px ${y2}px #fff`);
         }
-        elem.style.boxShadow = shadows.join(', ');
+
+        elem.style.boxShadow = shadowsMain.join(', ');
+        
+        // ::after にも影を適用するためにスタイルシートを動的追加
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`#${layer.id}::after { box-shadow: ${shadowsAfter.join(', ')}; }`, styleSheet.cssRules.length);
     });
 </script>
-
 
 </body>
 </html>
