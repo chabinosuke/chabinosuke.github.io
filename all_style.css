@@ -59,7 +59,7 @@ a {
 
 #stars::after, #stars2::after, #stars3::after, #stars4::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 1780px;
     background: transparent;
 }
