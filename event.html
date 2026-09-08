@@ -1,335 +1,186 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>Events - イベント情報</title>
-    <style>
-        /* --------------------------------------------------
-           背景・星空のスタイル（index共通）
-        -------------------------------------------------- */
-        body {
-            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - イベント情報</title>
+  
+  <!-- アイコン表示 -->
+  <link rel="shortcut icon" href="image/icon48_3.ico" type="image/icon">
+  <link rel="apple-touch-icon" href="image/icon180_3.png" sizes="180x180">
 
-        /* 星をCSSのbox-shadowだけで描画するためのベース */
-        #stars, #stars2, #stars3 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            z-index: -1; /* コンテンツの裏側に配置 */
-        }
-
-        #stars {
-            background: transparent;
-            box-shadow: 1747px 1541px #fff, 1264px 892px #fff, 955px 242px #fff, 435px 1191px #fff, 1152px 1370px #fff;
-            animation: animStar 50s linear infinite;
-        }
-        #stars:after {
-            content: " ";
-            position: absolute;
-            top: 2000px;
-            width: 1px;
-            height: 1px;
-            background: transparent;
-            box-shadow: 1747px 1541px #fff, 1264px 892px #fff, 955px 242px #fff, 435px 1191px #fff, 1152px 1370px #fff;
-        }
-
-        #stars2 {
-            background: transparent;
-            box-shadow: 1448px 320px #fff, 332px 1364px #fff, 878px 340px #FEF4F8, 121px 979px #fff;
-            animation: animStar 100s linear infinite;
-        }
-        #stars2:after {
-            content: " ";
-            position: absolute;
-            top: 2000px;
-            width: 2px;
-            height: 2px;
-            background: transparent;
-            box-shadow: 1448px 320px #fff, 332px 1364px #fff, 878px 340px #FEF4F8, 121px 979px #fff;
-        }
-
-        #stars3 {
-            background: transparent;
-            box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff;
-            animation: animStar 150s linear infinite;
-        }
-        #stars3:after {
-            content: " ";
-            position: absolute;
-            top: 2000px;
-            width: 3px;
-            height: 3px;
-            background: transparent;
-            box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff;
-        }
-
-        @keyframes animStar {
-            from {
-                transform: translateY(0px);
-            }
-            to {
-                transform: translateY(-2000px);
-            }
-        }
-
-        /* --------------------------------------------------
-           各ボックス・ボタンのスタイル
-        -------------------------------------------------- */
-        .box1 {
-            color: #fff;
-            margin: auto;
-            height: 50px;
-            width: 100%;
-            background: linear-gradient(to right, #010633, #000000);
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .box2 {
-            color: #fff;
-            margin: auto;
-            height: 70px;
-            width: 100%;
-            background: linear-gradient(to right, #010633, #000000);
-            text-align: center;
-            padding: 15px 0;
-        }
-
-        .box1-3 {
-            width: 370px;
-            border-radius: 8em;
-            margin: 0 auto 1.3em;
-            padding: 1.1em;
-            background: #01064d;
-            border: dotted 5px #3702b3;
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.32);
-        }
-        .box1-3 p { margin: 0; }
-
-        .box1-4 {
-            width: 370px;
-            border-radius: 8em;
-            margin: 0 auto 1.3em;
-            padding: 1.1em;
-            background: #330145;
-            border: dotted 5px #a600bf;
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.32);
-        }
-        .box1-4 p { margin: 0; }
-
-        /* BUTTON GLOW */
-        .btn-glow {
-            color: #fff !important;
-            display: inline-block;
-            background: linear-gradient(to right, rgba(112,12,255,1) 0%, rgba(112,252,255,1) 100%);
-            border: none;
-            text-align: center;
-            font-weight: 300;
-            font-size: 22px;
-            line-height: 56px;
-            letter-spacing: 0.07em;
-            text-decoration: none !important;
-            text-transform: uppercase;
-            padding: 0 30px;
-            transition: 0.3s;
-            box-shadow: none;
-            animation: glow 3s infinite ease-out;
-            position: relative;
-            border-radius: 50px;
-        }
-        .btn-glow:hover {
-            box-shadow: 0 0 0 10px #3daaa200;
-            transition: .20s;
-            background: linear-gradient(to right, rgba(112,252,255,1) 0%, rgba(112,12,255,1) 100%);
-        }
-
-        .btn-glow2 {
-            display: inline-block;
-            border-radius: 50px;
-        }
-
-        @keyframes glow {
-            0% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 0px #fff; }
-            50% { box-shadow: 0 0 50px #8b61f8ee; text-shadow: 0 0 30px #fff; }
-            100% { box-shadow: 0 0 20px #8b61f844; text-shadow: 0 0 1px #fff; }
-        }
-
-        /* Shine effect */
-        .btn-hover-shine {
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-hover-shine:after {
-            content: '';
-            position: absolute;
-            display: block;
-            top: 0;
-            height: 100%;
-            right: 80%;
-            width: 1px;
-            background-color: #ffffff00;
-            box-shadow: 0 0 20px #ffd2fe00, 0 0 10px #ffd2fe00, 0 0 5px #ffd2fe00, 0 0 2px #ffd2fe00;
-            opacity: 1;
-        }
-        .btn-hover-shine:hover:after {
-            right: 2%;
-            background-color: #ffffffff;
-            box-shadow: 0 0 30px #ffd2feff, 0 0 15px #ffd2feff, 0 0 7px #ffd2feff, 0 0 3px #ffd2feff;
-            opacity: 0;
-            transition: 0.6s;
-        }
-
-        a {
-            color: #84B3FF;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #88FBFF;
-            font-weight: 400;
-        }
-        a:visited {
-            color: #F4B3FF;
-        }
-    </style>
+  <!-- 共通CSSの読み込み -->
+  <link rel="stylesheet" href="all_style.css">
+  
 </head>
+
 <body>
+  <!-- 4重の星空要素 -->
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+  <div id="stars4"></div>
 
-    <!-- 星空背景用レイヤー -->
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
+  <div class="wrapper">
 
-<div style="text-align: center; padding-bottom: 50px;">
-
-    <!-- 透明ボックス -->
-    <div class="box box1">
-        <font size="4" color="#ffffff"><b>Events</b></font>
-        <br>
-        <font size="4" color="#a3a3ff">&ensp;&#10028;&ensp;参加予定 & 過去参加イベント&ensp;&#10028;&ensp;</font>
+    <!-- 端から端までの透明ボックス（ヘッダー部分） -->
+    <div class="box">
+      <span class="sub-text-1">Events</span>
+      <span class="sub-text-2">&#10028;&ensp;参加予定 & 過去参加イベント&ensp;&#10028;</span>
     </div>
 
-    <br><br>
+    <div style="height: 30px;"></div>
 
-    <div class="box1-3">
-        <p>
-            <b><font size="4" color="#d9d9ff">参加予定</font></b>
-            <br>
-            <font size="3" color="#d9d9ff">I don't have any plans.</font>
+    <!-- 参加予定ブロック -->
+    <div class="section-margin" style="margin-bottom: 50px; text-align: center;">
+      <div class="box1-3" style="width: 370px; border-radius: 8em; margin: 0 auto; padding: 1.1em; background: #01064d; border: dotted 5px #3702b3; box-shadow: 0 5px 5px rgba(0, 0, 0, 0.32);">
+        <p style="margin: 0;">
+          <b><font size="4" color="#d9d9ff">参加予定</font></b>
+          <br>
+          <font size="3" color="#d9d9ff">I don't have any plans.</font>
         </p>
+      </div>
     </div>
-    <br><br>
 
-    <div class="box1-4">
-        <p>
-            <b><font size="4" color="#f0d4ff">過去参加</font></b>
+    <!-- 過去参加ブロック見出し -->
+    <div class="section-margin" style="margin-bottom: 50px; text-align: center;">
+      <div class="box1-4" style="width: 370px; border-radius: 8em; margin: 0 auto; padding: 1.1em; background: #330145; border: dotted 5px #a600bf; box-shadow: 0 5px 5px rgba(0, 0, 0, 0.32);">
+        <p style="margin: 0;">
+          <b><font size="4" color="#f0d4ff">過去参加</font></b>
         </p>
-    </div>
-    <br><br>
-
-    <font size="3" color="#c1c1ff">オンライン：2026/05/24 sun.</font>
-    <br>
-    <div class="btn-glow2">
-        <a href="https://event.toranoana.jp/web-only/351760/" target="_blank" class="btn-glow btn-hover-shine">
-        &emsp;第４回インディーゲームWEBオンリーFinal&emsp;</a>
-    </div>
-    <br>
-    <font size="3" color="#c1c1ff">&#9650;&ensp;イベントページ&ensp;&#9650;</font>
-    <br><br><br><br>
-
-    <font size="3" color="#c1c1ff">オンライン：2025/11月～2026/3月</font>
-    <br>
-    <div class="btn-glow2">
-        <a href="https://novelgame.jp/fes10" target="_blank" class="btn-glow btn-hover-shine">
-        &emsp;ティラノゲームフェス１０&emsp;</a>
-    </div>
-    <br>
-    <font size="3" color="#c1c1ff">&#9650;&ensp;公式サイト&ensp;&#9650;</font>
-    <br><br><br><br>
-
-    <font size="3" color="#c1c1ff">オフライン：2025/11/09 sun.</font>
-    <br>
-    <div class="btn-glow2">
-        <a href="https://tokyogamedungeon.com/" target="_blank" class="btn-glow btn-hover-shine">
-        &emsp;東京ゲームダンジョン１０&emsp;</a>
-    </div>
-    <br>
-    <font size="3" color="#c1c1ff">&#9650;&ensp;公式サイトはこちら&ensp;&#9650;</font>
-    <br><br><br><br>
-
-    <font size="3" color="#c1c1ff">オンライン：2025/10/04 sat.&ensp;10:30～22:30</font>
-    <br>
-    <div class="btn-glow2">
-        <a href="https://event.toranoana.jp/web-only-circle/318959/" target="_blank" class="btn-glow btn-hover-shine">
-        &emsp;第３回インディーゲームWEBオンリー&emsp;</a>
-    </div>
-    <br><br><br><br>
-
-    <font size="3" color="#c1c1ff">オフライン：2025/05/24 sat.</font>
-    <br>
-    <div class="btn-glow2">
-        <a href="https://chabinosukede.gozaru.jp/game_dreamscape3_2025.html" target="_blank" class="btn-glow btn-hover-shine">
-        &emsp;DREAM SCAPE#3&emsp;</a>
-    </div>
-    <br><br><br><br>
-
-    <font size="3" color="#c1c1ff">オンライン：2025/03/01～04/30</font>
-    <br>
-    <div class="btn-glow2">
-        <a href="https://chabinosukede.gozaru.jp/game_museum.html" target="_blank" class="btn-glow btn-hover-shine">
-        &emsp;はなまるアートミュージアム&emsp;</a>
-    </div>
-    <br>
-    <font size="3" color="#c1c1ff">&emsp;ギャラリスト３D美術館</font>
-    <br><br><br><br>
-
-    <font size="3" color="#c1c1ff">オンライン：2024/9月～終了</font>
-    <br>
-    <div class="btn-glow2">
-        <a href="https://chabinosukede.gozaru.jp/game_tgf2024.html" target="_blank" class="btn-glow btn-hover-shine">
-        &emsp;ティラノゲームフェス２０２４&emsp;</a>
-    </div>
-    <br><br><br><br>
-
-    <font size="3" color="#c1c1ff">オンライン：2022/10/15～終了</font>
-    <br>
-    <div class="btn-glow2">
-        <a href="https://chabinosukede.gozaru.jp/game_tgf2022.html" target="_blank" class="btn-glow btn-hover-shine">
-        &emsp;ティラノゲームフェス２０２２&emsp;</a>
+      </div>
     </div>
 
-    <br><br><br><br><br><br><br>
-
-    <div class="box2">
-        <font size="3" color="#ffffff">更新履歴</font>
-        <br>&emsp;
-        <font size="3" color="#e0c1ff">2026/06/10&ensp;過去参加</font>&ensp;
-        <font size="3" color="#ffc1e0">第４回インディーゲームWEBオンリーFinal</font>
+    <!-- イベント 1 -->
+    <div class="section-margin" style="margin-bottom: 60px; text-align: center;">
+      <font size="3" color="#c1c1ff">オンライン：2026/05/24 sun.</font>
+      <div style="height: 10px;"></div>
+      <div class="btn-glow2">
+        <a href="https://event.toranoana.jp/web-only/351760/" target="_blank" class="btn-glow btn-hover-shine game-btn">&emsp;第４回インディーゲームWEBオンリーFinal&emsp;</a>
+      </div>
+      <div style="height: 10px;"></div>
+      <font size="3" color="#c1c1ff">&#9650;&ensp;イベントページ&ensp;&#9650;</font>
     </div>
 
-    <br><br><br><br>
-
-    <div class="btn-glow2">
-        <a href="index.html" target="_blank" class="btn-glow btn-hover-shine">&emsp;HOMEへ戻る&emsp;</a>
+    <!-- イベント 2 -->
+    <div class="section-margin" style="margin-bottom: 60px; text-align: center;">
+      <font size="3" color="#c1c1ff">オンライン：2025/11月～2026/3月</font>
+      <div style="height: 10px;"></div>
+      <div class="btn-glow2">
+        <a href="https://novelgame.jp/fes10" target="_blank" class="btn-glow btn-hover-shine game-btn">&emsp;ティラノゲームフェス１０&emsp;</a>
+      </div>
+      <div style="height: 10px;"></div>
+      <font size="3" color="#c1c1ff">&#9650;&ensp;公式サイト&ensp;&#9650;</font>
     </div>
 
-    <br><br><br><br>
-    <font size="4" color="#9966ff">
-        © 2020 chabinosuke_<a href="https://chabinosukede.gozaru.jp/oxtv.html" target="_blank">.</a>
-    </font>
+    <!-- イベント 3 -->
+    <div class="section-margin" style="margin-bottom: 60px; text-align: center;">
+      <font size="3" color="#c1c1ff">オフライン：2025/11/09 sun.</font>
+      <div style="height: 10px;"></div>
+      <div class="btn-glow2">
+        <a href="https://tokyogamedungeon.com/" target="_blank" class="btn-glow btn-hover-shine game-btn">&emsp;東京ゲームダンジョン１０&emsp;</a>
+      </div>
+      <div style="height: 10px;"></div>
+      <font size="3" color="#c1c1ff">&#9650;&ensp;公式サイトはこちら&ensp;&#9650;</font>
+    </div>
 
-</div>
+    <!-- イベント 4 -->
+    <div class="section-margin" style="margin-bottom: 60px; text-align: center;">
+      <font size="3" color="#c1c1ff">オンライン：2025/10/04 sat.&ensp;10:30～22:30</font>
+      <div style="height: 10px;"></div>
+      <div class="btn-glow2">
+        <a href="https://event.toranoana.jp/web-only-circle/318959/" target="_blank" class="btn-glow btn-hover-shine game-btn">&emsp;第３回インディーゲームWEBオンリー&emsp;</a>
+      </div>
+    </div>
 
+    <!-- イベント 5 -->
+    <div class="section-margin" style="margin-bottom: 60px; text-align: center;">
+      <font size="3" color="#c1c1ff">オフライン：2025/05/24 sat.</font>
+      <div style="height: 10px;"></div>
+      <div class="btn-glow2">
+        <a href="https://chabinosukede.gozaru.jp/game_dreamscape3_2025.html" target="_blank" class="btn-glow btn-hover-shine game-btn">&emsp;DREAM SCAPE#3&emsp;</a>
+      </div>
+    </div>
+
+    <!-- イベント 6 -->
+    <div class="section-margin" style="margin-bottom: 60px; text-align: center;">
+      <font size="3" color="#c1c1ff">オンライン：2025/03/01～04/30</font>
+      <div style="height: 10px;"></div>
+      <div class="btn-glow2">
+        <a href="https://chabinosukede.gozaru.jp/game_museum.html" target="_blank" class="btn-glow btn-hover-shine game-btn">&emsp;はなまるアートミュージアム&emsp;</a>
+      </div>
+      <div style="height: 5px;"></div>
+      <font size="3" color="#c1c1ff">&emsp;ギャラリスト３D美術館</font>
+    </div>
+
+    <!-- イベント 7 -->
+    <div class="section-margin" style="margin-bottom: 60px; text-align: center;">
+      <font size="3" color="#c1c1ff">オンライン：2024/9月～終了</font>
+      <div style="height: 10px;"></div>
+      <div class="btn-glow2">
+        <a href="https://chabinosukede.gozaru.jp/game_tgf2024.html" target="_blank" class="btn-glow btn-hover-shine game-btn">&emsp;ティラノゲームフェス２０２４&emsp;</a>
+      </div>
+    </div>
+
+    <!-- イベント 8 -->
+    <div class="section-margin" style="margin-bottom: 60px; text-align: center;">
+      <font size="3" color="#c1c1ff">オンライン：2022/10/15～終了</font>
+      <div style="height: 10px;"></div>
+      <div class="btn-glow2">
+        <a href="https://chabinosukede.gozaru.jp/game_tgf2022.html" target="_blank" class="btn-glow btn-hover-shine game-btn">&emsp;ティラノゲームフェス２０２２&emsp;</a>
+      </div>
+    </div>
+
+    <div style="height: 30px;"></div>
+
+    <!-- 更新履歴 -->
+    <div class="box2" style="display: block; width: 100%; clear: both;">
+      <div class="history-title">更新履歴</div>
+      <div>
+        <span class="history-date">2026/06/10 &ensp; 過去参加 &ensp;</span>
+        <span class="history-highlight">第４回インディーゲームWEBオンリーFinal</span>
+      </div>
+    </div>
+
+    <div style="height: 30px;"></div>
+
+    <!-- HOMEに戻るボタン（お好みで「TOPへ戻る」にする場合は書き換えてください） -->
+    <div class="section-margin" style="text-align: center;">
+      <div class="btn-glow2">
+        <a href="index.html" class="btn-glow btn-hover-shine">&emsp;HOMEに戻る&emsp;</a>
+      </div>
+    </div>
+
+    <!-- コピーライト -->
+    <div class="copyright">
+      © 2020 chabinosuke_<a href="https://chabinosukede.gozaru.jp/oxtv.html" target="_blank">.</a>
+    </div>
+
+  </div><!-- /.wrapper -->
+
+  <!-- 星空自動生成用 JavaScript -->
+  <script>
+    function generateStars(count, colors = ['#ffffff']) {
+      let shadows = [];
+      for (let i = 0; i < count; i++) {
+        const x = Math.floor(Math.random() * 2000);
+        const y = Math.floor(Math.random() * 1780);
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        shadows.push(`${x}px ${y}px ${color}`);
+      }
+      return shadows.join(', ');
+    }
+
+    const starColors = ['#ffffff', '#ffffff', '#fef4f8', '#e0c1ff'];
+    
+    const styleElem = document.createElement('style');
+    styleElem.innerHTML = `
+      #stars, #stars::after { box-shadow: ${generateStars(400, starColors)}; }
+      #stars2, #stars2::after { box-shadow: ${generateStars(150, starColors)}; }
+      #stars3, #stars3::after { box-shadow: ${generateStars(80, starColors)}; }
+      #stars4, #stars4::after { box-shadow: ${generateStars(40, starColors)}; }
+    `;
+    document.head.appendChild(styleElem);
+  </script>
 </body>
 </html>
