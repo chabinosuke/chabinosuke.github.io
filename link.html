@@ -2,8 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>LINK - CHABI LAND</title>
-    <!-- CSSの読み込みはここ（head内）にするのが確実です -->
+    <title>LINK</title>
     <link rel="stylesheet" href="all_style.css">
 </head>
 <body>
@@ -12,6 +11,7 @@
     <div id="stars"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
+    <div id="stars4"></div>
 
     <!-- ヘッダー部分 -->
     <div style="text-align: center;">
@@ -128,8 +128,9 @@
         <font size="4" color="#ffc1e0">当HP&ensp;<b>CHABI&ensp;LAND</b>&ensp;は<b>フリーリンク</b>です。</font>
         <br><br>
         <font size="4">
-            &emsp;&emsp;&emsp;&ensp;
-            HP：https://chabinosukede.gozaru.jp/
+            
+            HP名：CHABILAND
+            HP URL：https://chabinosukede.gozaru.jp/
             <br>
             制作者名：チャビノスケ(@chabinosuke_)
         </font>
@@ -149,19 +150,46 @@
 
     <br><br><br>
 
-    <!-- フッター・TOPへ戻る -->
-    <div style="text-align: center;">
-        <div class="btn-glow2">
-            <a href="index.html" target="_blank" class="btn-glow btn-hover-shine">&emsp;HOMEへ戻る&emsp;</a>
-        </div>
-        
-        <br><br><br><br><br>
-        <font size="4" color="#9966ff">
-            © 2020 chabinosuke_
-        </font>
-        <br>
+    <!-- HOMEに戻るボタン -->
+    <div class="section-margin" style="text-align: center;">
+      <div class="btn-glow2">
+        <a href="index.html" class="btn-glow btn-hover-shine"> HOMEに戻る </a>
+      </div>
     </div>
-</div>
+
+    <!-- コピーライト -->
+    <div class="copyright" style="text-align: center;">
+        <font size="4" color="#9966ff">
+            © 2020 chabinosuke_<a href="https://chabinosukede.gozaru.jp/" target="_blank">.</a>
+        </font>
+    </div>
+
+</div><!-- /.wrapper -->
+
+<!-- 星空自動生成用 JavaScript -->
+<script>
+    function generateStars(count, colors = ['#ffffff']) {
+      let shadows = [];
+      for (let i = 0; i < count; i++) {
+        const x = Math.floor(Math.random() * 2000);
+        const y = Math.floor(Math.random() * 1780);
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        shadows.push(`${x}px ${y}px ${color}`);
+      }
+      return shadows.join(', ');
+    }
+
+    const starColors = ['#ffffff', '#ffffff', '#fef4f8', '#e0c1ff'];
+    
+    const styleElem = document.createElement('style');
+    styleElem.innerHTML = `
+      #stars, #stars::after { box-shadow: ${generateStars(400, starColors)}; }
+      #stars2, #stars2::after { box-shadow: ${generateStars(150, starColors)}; }
+      #stars3, #stars3::after { box-shadow: ${generateStars(80, starColors)}; }
+      #stars4, #stars4::after { box-shadow: ${generateStars(40, starColors)}; }
+    `;
+    document.head.appendChild(styleElem);
+</script>
 
 </body>
 </html>
