@@ -95,5 +95,41 @@
     </div>
 </div>
 
+
+<br><br>
+        <span style="font-size: 1.1rem; color: #9966ff;">
+            © 2020 chabinosuke_
+        </span>
+        <br><br>
+
+    </div>
+</div>
+
+<!-- ↓この星を自動生成するJavaScriptを追加してください！↓ -->
+<script>
+    function createStars(id, count, size) {
+        const container = document.getElementById(id);
+        if (!container) return;
+        let shadows = [];
+        for (let i = 0; i < count; i++) {
+            let x = Math.floor(Math.random() * 2000);
+            let y = Math.floor(Math.random() * 2000);
+            shadows.push(`${x}px ${y}px #fff`);
+        }
+        container.style.width = size + 'px';
+        container.style.height = size + 'px';
+        container.style.background = 'transparent';
+        container.style.boxShadow = shadows.join(', ');
+        container.style.animation = 'animStar 150s linear infinite';
+    }
+    createStars('stars', 400, 1);
+    createStars('stars2', 200, 2);
+    createStars('stars3', 100, 3);
+    createStars('stars4', 50, 3);
+</script>
+
+</body>
+</html>
+
 </body>
 </html>
