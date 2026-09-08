@@ -394,16 +394,38 @@ a {
     margin: 0;
 }
 
-/* 説明用ボックス */
-.box2 {
+/* ==========================================
+   「ほちゃっと！天使ちゃん」ページ専用パーツ
+   ========================================== */
+
+/* 破線ボックス（タイトル用） */
+.box1-3 {
+    width: 450px;
+    max-width: 100%; /* スマホではみ出さないように */
+    border-radius: 3em;
+    margin: 0 auto 1.3em;
+    padding: 1.1em;
+    background: #01064d;
+    border: dotted 5px #3702b3;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.32);
+    box-sizing: border-box;
+}
+.box1-3 p {
+    margin: 0;
+}
+
+/* 天使ちゃんページ用の説明用ボックス */
+.tenshi-box2 {
     width: 874px;
+    max-width: 100%; /* スマホなどの狭い画面でも絶対にはみ出さない！ */
     margin: auto;
     padding: 0.5em;
     color: #00BCD4;
     background: #271866;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.32);
+    box-sizing: border-box;
 }
-.box2 p {
+.tenshi-box2 p {
     margin: 0;
     padding: 0;
 }
