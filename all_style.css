@@ -437,7 +437,7 @@ a {
 
 /* 2行以上に改行するボタン専用の調整クラス */
 .btn-multiline {
-    line-height: 1.7 !important;      /* 文字の行間を狭くする */
+    line-height: 1.5 !important;      /* 文字の行間を狭くする */
     padding-top: 10px !important;     /* 上下の余白を調整 */
     padding-bottom: 10px !important;
     height: auto !important;          /* 高さが崩れないように自動調整にする */
